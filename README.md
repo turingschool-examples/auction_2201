@@ -28,7 +28,7 @@ pry(main)> item1.name
 pry(main)> item2 = Item.new('Bamboo Picture Frame')
 #=> #<Item:0x00007fbda91874f0 @bids={}, @name="Bamboo Picture Frame">
 
-pry(main)> attendee = Attendee.new(name: 'Megan', budget: '$50')
+pry(main)> attendee = Attendee.new({name: 'Megan', budget: '$50'})
 #=> #<Attendee:0x00007fbda913f038 @budget=50, @name="Megan">
 
 pry(main)> attendee.name
@@ -85,13 +85,13 @@ pry(main)> item4 = Item.new('2 Days Dogsitting')
 pry(main)> item5 = Item.new('Forever Stamps')
 #=> #<Item:0x00007fdc071695f0 @bids={}, @name="Forever Stamps">
 
-pry(main)> attendee1 = Attendee.new(name: 'Megan', budget: '$50')
+pry(main)> attendee1 = Attendee.new({name: 'Megan', budget: '$50'})
 #=> #<Attendee:0x00007fdc088f0e08 @budget=50, @name="Megan">
 
-pry(main)> attendee2 = Attendee.new(name: 'Bob', budget: '$75')
+pry(main)> attendee2 = Attendee.new({name: 'Bob', budget: '$75'})
 #=> #<Attendee:0x00007fdc071131c8 @budget=75, @name="Bob">
 
-pry(main)> attendee3 = Attendee.new(name: 'Mike', budget: '$100')
+pry(main)> attendee3 = Attendee.new({name: 'Mike', budget: '$100'})
 #=> #<Attendee:0x00007fdc070e2190 @budget=100, @name="Mike">
 
 pry(main)> auction = Auction.new
@@ -169,13 +169,13 @@ pry(main)> item4 = Item.new('2 Days Dogsitting')
 pry(main)> item5 = Item.new('Forever Stamps')
 #=> #<Item:0x00007ff17704e140 ...>
 
-pry(main)> attendee1 = Attendee.new(name: 'Megan', budget: '$50')
+pry(main)> attendee1 = Attendee.new({name: 'Megan', budget: '$50'})
 #=> #<Attendee:0x00007ff177a45108 ...>
 
-pry(main)> attendee2 = Attendee.new(name: 'Bob', budget: '$75')
+pry(main)> attendee2 = Attendee.new({name: 'Bob', budget: '$75'})
 #=> #<Attendee:0x00007ff17816a4b0 ...>
 
-pry(main)> attendee3 = Attendee.new(name: 'Mike', budget: '$100')
+pry(main)> attendee3 = Attendee.new({name: 'Mike', budget: '$100'})
 #=> #<Attendee:0x00007ff177a0f5f8 ...>
 
 pry(main)> auction = Auction.new
@@ -267,13 +267,13 @@ pry(main)> item4 = Item.new('2 Days Dogsitting')
 pry(main)> item5 = Item.new('Forever Stamps')
 #=> #<Item:0x00007f9ea5bc0480 ...>
 
-pry(main)> attendee1 = Attendee.new(name: 'Megan', budget: '$50')
+pry(main)> attendee1 = Attendee.new({name: 'Megan', budget: '$50'})
 #=> #<Attendee:0x00007f9ea5b73f40 ...>
 
-pry(main)> attendee2 = Attendee.new(name: 'Bob', budget: '$75')
+pry(main)> attendee2 = Attendee.new({name: 'Bob', budget: '$75'})
 #=> #<Attendee:0x00007f9ea50c4748 ...>
 
-pry(main)> attendee3 = Attendee.new(name: 'Mike', budget: '$100')
+ pry(main)> attendee3 = Attendee.new({name: 'Mike', budget: '$100')
 #=> #<Attendee:0x00007f9ea50b5b58 ...>
 
 pry(main)> auction = Auction.new
