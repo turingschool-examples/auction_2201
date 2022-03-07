@@ -141,8 +141,9 @@ pry(main)> auction.potential_revenue
 ## Iteration 3 - More bidding stuff!
 
 Use TDD to update your classes to respond to the following interaction pattern.  Some notes:
+- `bidders` should list the names of each attendee that bid on the item. 
+- `close_bidding` should update the item so that it will not accept additional bids.
 - `bidder_info` should return a hash with keys that are attendees, and values that are a hash with that attendee's budget and an array of items that attendee has bid on.
-- `close_bidding` should update the item so that it will not accept additional bids
 
 ```ruby
 pry(main)> require './lib/item'
@@ -202,6 +203,16 @@ pry(main)> item3.add_bid(attendee2, 15)
 pry(main)> auction.bidders
 #=> ["Megan", "Bob", "Mike"]
 
+pry(main)> item1.bids
+#=> {#<Attendee:0x00007ff177a45108 ...> => 22, #<Attendee:0x00007ff17816a4b0 ...> => 20}
+
+pry(main)> item1.close_bidding
+
+pry(main)> item1.add_bid(@attendee3, 70)
+
+pry(main)> item1.bids
+#=> {#<Attendee:0x00007ff177a45108 ...> => 22, #<Attendee:0x00007ff17816a4b0 ...> => 20}
+
 pry(main)> auction.bidder_info
 #=> {
  #    #<Attendee:0x00007ff177a45108 @budget=50, @name="Megan"> =>
@@ -220,16 +231,6 @@ pry(main)> auction.bidder_info
  #        :items => [#<Item:0x00007ff177a9d858...>]
  #      }
  #   }
-
-pry(main)> item1.bids
-#=> {#<Attendee:0x00007ff177a45108 ...> => 22, #<Attendee:0x00007ff17816a4b0 ...> => 20}
-
-pry(main)> item1.close_bidding
-
-pry(main)> item1.add_bid(@attendee3, 70)
-
-pry(main)> item1.bids
-#=> {#<Attendee:0x00007ff177a45108 ...> => 22, #<Attendee:0x00007ff17816a4b0 ...> => 20}
 
 ```
 
