@@ -26,4 +26,14 @@ class Auction
     end
     money
   end
+
+  def bidders
+    names = []
+    @items.each do |item|
+      item.bids.each do |attendee, bid|
+        names << attendee.name
+      end
+    end
+    names.uniq
+  end
 end
