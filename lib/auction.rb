@@ -23,4 +23,13 @@ class Auction
     potential = @items.map {|item| item.current_high_bid}
     potential.sum
   end
+
+  def bidders
+    names = []
+    @items.each do |item|
+      item.bids.each_key { |attendee| names << attendee.name unless names.include? attendee.name}
+    end
+    names
+  end
+
 end
