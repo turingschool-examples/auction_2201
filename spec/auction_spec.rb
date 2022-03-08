@@ -24,4 +24,9 @@ describe Auction do
     expect(@auction.items).to eq [@item1, @item2]
   end
 
+  it 'lists item names' do
+    @auction.add_item(@item1)
+    @auction.add_item(@item2)
+    expect(@auction.item_names).to eq [@item1.name, @item2.name]
+  end
 end
