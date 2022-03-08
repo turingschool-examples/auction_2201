@@ -16,9 +16,9 @@ RSpec.describe Attendee do
     expect(@auction.items).to eq([])
   end
   it "adds an item" do
-    auction.add_item(@item1)
-    auction.add_item(@item2)
-    expect(auction.items).to eq ([@item1, @item2])
+    @auction.add_item(@item1)
+    @auction.add_item(@item2)
+    expect(@auction.items).to eq ([@item1, @item2])
   end
 
 
