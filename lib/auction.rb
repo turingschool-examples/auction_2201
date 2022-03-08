@@ -1,3 +1,4 @@
+require 'date'
 class Auction
 attr_reader :items
   def initialize
@@ -40,8 +41,11 @@ attr_reader :items
                           }
                         }
     bidder_info
-
   end
 
-
+  def date
+     [Date.today.strftime('%d/%m/%y')[0..-3], Date.today.year.to_s].join
   end
+
+  
+end
