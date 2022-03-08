@@ -148,6 +148,23 @@ RSpec.describe Item do
                               })
     end
 
+    it 'can return bidder_info' do
+      expect(@auction.bidder_info).to eq({
+                                            @attendee1 => {
+                                                            :budget => 50,
+                                                            :items => [@item1]
+                                                          },
+                                            @attendee2 => {
+                                                            :budget => 75,
+                                                            :items => [@item1, @item]
+                                                          },
+                                            @attendee3 => {
+                                                            :budget => 100,
+                                                            :items => [@item4]
+                                                          }
+                                            })
+    end
+
 
 
 
