@@ -49,6 +49,11 @@ RSpec.describe Attendee do
     it "can sees item bids" do
       expect(@item1.bids).to eq({})
     end
+    it "can add a bid to the items" do
+      @item1.add_bid(@attendee2, 20)
+      @item1.add_bid(@attendee1, 22)
+      expect(@item1.bids).to eq ({@attendee2 => 20, @attendee1 => 22})
+    end
   end
 
 
