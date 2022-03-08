@@ -7,4 +7,7 @@ class Item
     @bids = {}
   end
 
+  def add_bid(bidder, bid)
+    @bids[bidder] = bid
+  end
 end
