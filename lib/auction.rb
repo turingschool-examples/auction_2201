@@ -14,4 +14,8 @@ class Auction
       item.name
     end
   end
+  
+  def unpopular_items
+    items.find_all { |item| item.bids == {} }
+  end
 end
