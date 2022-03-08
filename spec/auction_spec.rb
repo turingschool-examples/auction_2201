@@ -120,5 +120,6 @@ RSpec.describe Auction do
     it "#bidders" do
       expect(@auction.bidders).to eq(["Megan", "Bob", "Mike"])
     end
+    
   end
 end

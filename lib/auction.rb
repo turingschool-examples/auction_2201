@@ -40,4 +40,14 @@ class Auction
     potential_revenue.sum
   end
 
+  def bidders
+    bidders = []
+    @items.each do |item|
+      item.bids.each do |attendee, amount|
+        bidders << attendee.name
+      end
+    end
+    bidders.uniq
+  end
+
 end
