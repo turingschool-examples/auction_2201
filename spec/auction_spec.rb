@@ -108,7 +108,7 @@ RSpec.describe Auction do
     expect(@item1.bids).to eq({@attendee1 => 22, @attendee2 => 20})
   end
 
-  xit 'can store bidder_info in a hash' do
+  it 'can store bidder_info in a hash' do
     expect(@item1.bids).to eq({})
     @auction.add_item(@item1)
     @auction.add_item(@item2)
@@ -119,8 +119,8 @@ RSpec.describe Auction do
     @item1.add_bid(@attendee2, 20)
     @item4.add_bid(@attendee3, 50)
     @item3.add_bid(@attendee2, 15)
-    @item1.add_bid(@attendee3, 70)
     @item1.close_bidding
+    @item1.add_bid(@attendee3, 70)
     expect(@auction.bidder_info).to eq(
       {
           @attendee1 =>
