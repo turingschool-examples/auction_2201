@@ -29,9 +29,9 @@ RSpec.describe Auction do
                   @attendee2 => 20,
                   @attendee1 => 22
                }
-
     expect(@item1.bids).to eq (expected)
   end
+
   it 'Item has #current_high_bid' do
 
     @item1.add_bid(@attendee2, 20)
@@ -39,4 +39,6 @@ RSpec.describe Auction do
 
     expect(@item1.current_high_bid).to eq(22)
   end
+
+  
 end
