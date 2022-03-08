@@ -19,5 +19,8 @@ class Auction
     unpopular = all_items.keep_if {|item| item.bids == {}}
   end
 
-
+  def potential_revenue
+    potential = @items.map {|item| item.current_high_bid}
+    potential.sum
+  end
 end
