@@ -22,6 +22,11 @@ describe Auction do
     it 'starts with no items' do
       expect(@auction.items).to eq([])
     end
+
+    it 'has a date' do
+      expected = Date.today.to_s
+      expect(@auction.date).to eq(expected)
+    end
   end
 
   context 'adding items' do
@@ -108,7 +113,7 @@ describe Auction do
       @item5.add_bid(@attendee1, 35)
     end
 
-    it 'Auction #close_auction' do
+    xit 'Auction #close_auction' do
       expected = {
         @item1 => @attendee2,
         @item2 => 'Not Sold',
@@ -117,7 +122,7 @@ describe Auction do
         @item5 => @attendee1
       }
 
-      expect(@auction.close_bidding).to eq(expected)
+      expect(@auction.close_auction).to eq(expected)
     end
   end
 end

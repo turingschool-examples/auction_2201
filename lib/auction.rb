@@ -1,7 +1,13 @@
+require 'date'
 class Auction
   attr_reader :items
   def initialize
     @items = []
+    @date = Date.today
+  end
+
+  def date
+    @date.to_s
   end
 
   def add_item(item)
@@ -40,5 +46,12 @@ class Auction
       current_bids[:items] = @items.find_all {|item| item.bids.key?(attendee)}
     end
     info
+  end
+
+  def close_auction
+    auction_results = Hash.new
+    @items.each do |item|
+      auction_results[item] = 'Not Sold'
+    end
   end
 end
