@@ -26,4 +26,14 @@ class Auction
   def bidders
     items.map { |item| item.bids.keys.map { |key| key.name }.flatten }.flatten.uniq
   end
+
+  def bidder_info
+    info = {}
+    bidders = items.map { |item| item.bids.keys }.flatten.uniq
+    bidders.each do |bidder|
+      info[bidder] = {budget: bidder.budget,
+                      items: [items.find_all { |item| item.bids.key == bidder.name }]}
+    end
+    binding.pry
+  end
 end
