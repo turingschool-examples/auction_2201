@@ -135,7 +135,7 @@ RSpec.describe Item do
     end
 
     it 'can return the names of all attendees who have bid on an item' do
-      expect(@auction.bidders).to eq(["Megan", "Mike", "Bob"])
+      expect(@auction.bidders).to eq(["Megan", "Bob", "Mike"])
     end
 
 
