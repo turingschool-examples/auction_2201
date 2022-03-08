@@ -48,13 +48,13 @@ describe Auction do
     @auction.add_item(@item5)
   end
 
-  it "items can be bidded on" do
+  it "items can be bid on" do
     expect(@item1.bids).to eq({})
     @item1.add_bid(@attendee2, 20)
     @item1.add_bid(@attendee1, 22)
     expect(@item1.bids).to eq({
-      @attendee2: 20,
-      @attendee1: 22
+      @attendee2 => 20,
+      @attendee1 => 22
       })
     expect(@item1.current_high_bid).to eq(22)
   end
