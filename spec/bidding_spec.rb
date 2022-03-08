@@ -92,5 +92,8 @@ RSpec.describe 'Bidding!' do
       # binding.pry
       expect(@auction.bidders).to eq(%w[Bob Megan Mike])
     end
+
+    it 'Item #close_bidding rejects any new bids' do
+    end
   end
 end
