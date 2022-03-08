@@ -10,4 +10,8 @@ RSpec.describe Attendee do
   it 'exists' do
     expect(@attendee).to be_an_instance_of(Attendee)
   end
+
+  it 'has a name' do
+    expect(@attendee.name).to eq("Megan")
+  end
 end
