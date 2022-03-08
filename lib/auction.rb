@@ -12,4 +12,8 @@ class Auction
   def item_names
     names = @items.map { |item| item.name}
   end
+
+  def unpopular_items
+    unpopular_items = @items.find_all { |item| item.bids.empty?} 
+  end
 end
