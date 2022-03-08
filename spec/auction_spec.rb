@@ -100,6 +100,12 @@ RSpec.describe Attendee do
     it "can show auction bidders" do
       expect(@auction.bidders).to eq (["Megan", "Bob", "Mike"])
     end
+    it "can close bidding" do
+      expect(@item1.bids).to eq(@attendee1 => 22, @attendee2 => 20)
+      @item1.close_bidding
+      expect(@item1.bids).to eq(@attendee1 => 22, @attendee2 => 20)
+    end
+  
     
     
     
