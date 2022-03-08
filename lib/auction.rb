@@ -36,4 +36,17 @@ class Auction
     end
     names.uniq
   end
+
+  def bidder_info
+    info = Hash.new
+    @items.each do |item|
+      item.bids.each do |attendee, bid|
+        info[attendee] = {:budget => 0, :items => []} if !info.has_key?(attendee)
+        info[attendee][:budget] += attendee.budget if info[attendee][:budget] == 0
+        info[attendee][:items] << item
+      end
+    end
+    info
+    # require "pry"; binding.pry
+  end
 end
