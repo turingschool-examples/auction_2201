@@ -44,15 +44,23 @@ RSpec.describe Auction do
     @item1.add_bid(@attendee2, 20)
     @item1.add_bid(@attendee1, 22)
     expect(@item1.bids).to eq(
-      {
-        @attendee2 => 20,
-        @attendee1 => 22
-      }
-    )
-    #=> {
-    #     #<Attendee:0x00007fdc071131c8 ...> => 20,
-    #     #<Attendee:0x00007fdc088f0e08 ...> => 22
-    #   }
+                            {
+                              @attendee2 => 20,
+                              @attendee1 => 22
+                            }
+                          )
+  end
+
+  it 'has the current_high_bid' do
+    expect(@item1.bids).to eq({})
+    @auction.add_item(@item1)
+    @auction.add_item(@item2)
+    @auction.add_item(@item3)
+    @auction.add_item(@item4)
+    @auction.add_item(@item5)
+    @item1.add_bid(@attendee2, 20)
+    @item1.add_bid(@attendee1, 22)
+    expect(@item1.current_high_bid).to eq(22)
   end
 
 end

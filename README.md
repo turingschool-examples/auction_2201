@@ -114,7 +114,7 @@ pry(main)> item1.add_bid(attendee2, 20)
 
 pry(main)> item1.add_bid(attendee1, 22)
 
-pry(main)> item1.bids
+pry(main)> item1.bids x
 #=> {
 #     #<Attendee:0x00007fdc071131c8 ...> => 20,
 #     #<Attendee:0x00007fdc088f0e08 ...> => 22
