@@ -4,10 +4,11 @@ class Item
   def initialize(name)
     @name = name
     @bids = {}
+    @bidding_closed = false
   end
 
   def add_bid(attendee, bid)
-    @bids[attendee] = bid
+    @bids[attendee] = bid if !@bidding_closed
   end
 
   def current_high_bid
@@ -16,5 +17,9 @@ class Item
       nums << bid
     end
     nums.sort.reverse.first
+  end
+
+  def close_bidding
+    @bidding_closed = true
   end
 end
