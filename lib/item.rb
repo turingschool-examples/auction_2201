@@ -11,4 +11,10 @@ class Item
     @bids[attendee_obj] = bid
   end
 
+  def current_high_bid
+    high_bid = 0
+    @bids.each_value {|value| high_bid = value if value > high_bid}
+    high_bid
+  end
+
 end
