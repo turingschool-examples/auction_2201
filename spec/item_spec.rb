@@ -165,6 +165,10 @@ RSpec.describe Item do
                                             })
     end
 
+    it 'can return a list of all bidders (as objects)' do
+      expect(@auction.bidders_as_objects).to eq([@attendee1, @attendee2, @attendee3])
+    end
+
 
 
 
