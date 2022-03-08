@@ -61,8 +61,12 @@ describe Auction do
 
     it 'Auction #potential_revenue' do
       @item3.add_bid(@attendee2, 15)
-      
+
       expect(@auction.potential_revenue).to eq(87)
+    end
+
+    it 'Auction #bidders' do
+      expect(@auction.bidders).to eq(["Megan", "Bob", "Mike"])
     end
   end
 end
