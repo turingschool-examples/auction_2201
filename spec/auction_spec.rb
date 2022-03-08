@@ -47,8 +47,14 @@ RSpec.describe Auction do
   end
 
   it 'can display items with no bids' do
+    item4.add_bid(attendee3,50)
+    expect(auction.unpopular_items).to eq([item2,item3,item5])
     item3.add_bid(attendee2,15)
-    expect(auction.unpopular_items).to eq([item2,item4,item5])
+    expect(auction.unpopular_items).to eq([item2, item5])
+  end
+
+  it 'can display potential revenue by adding highest bid per item' do
+    expect(auction.potential_revenue).to eq(87)
   end
 
 end
