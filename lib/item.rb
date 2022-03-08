@@ -8,4 +8,12 @@ class Item
     @name = name
   end
 
+  def add_bid(attendee, bid)
+    if @bids[attendee]
+      @bids[attendee] << bid
+    else
+      @bids[attendee] = bid
+    end
+  end
+
 end
