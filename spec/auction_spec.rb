@@ -52,5 +52,9 @@ RSpec.describe Auction do
       expect(item1.bids).to eq({attendee2 => 20,
                                 attendee1 => 22})
     end
+
+    it "Item reads current high bid" do
+      expect(item1.current_high_bid).to eq(22)
+    end
   end
 end
