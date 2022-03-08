@@ -35,6 +35,7 @@ class Item
       attendee if bid <= attendee.budget
     end.sort {|attendee| attendee[1]}
     wise_bidders.map! {|attendee| attendee[0]}
+    wise_bidders[0].update_budget(@bids[wise_bidders[0]])
     wise_bidders[0]
   end
 end

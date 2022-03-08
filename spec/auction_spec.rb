@@ -114,26 +114,26 @@ RSpec.describe Auction do
       # allow(auction1).to receive(:date) { Date.parse('2020-02-24')}
       # expect(auction1.date).to eq('24/02/2020')
     end
-
-    it 'can close the auction and return a closing summary hash' do
-      @auction.add_item(@item1)
-      @auction.add_item(@item2)
-      @auction.add_item(@item3)
-      @auction.add_item(@item4)
-      @auction.add_item(@item5)
-      @item1.add_bid(@attendee1, 22)
-      @item1.add_bid(@attendee2, 20)
-      @item4.add_bid(@attendee2, 30)
-      @item4.add_bid(@attendee3, 50)
-      @item3.add_bid(@attendee2, 15)
-      @item5.add_bid(@attendee1, 35)
-      expect(@auction.close_auction).to eq({
-        @item1 => @attendee2,
-        @item2 => "Not Sold",
-        @item3 => @attendee2,
-        @item4 => @attendee3,
-        @item5 => @attendee1
-        })
-    end
+    # 
+    # it 'can close the auction and return a closing summary hash' do
+    #   @auction.add_item(@item1)
+    #   @auction.add_item(@item2)
+    #   @auction.add_item(@item3)
+    #   @auction.add_item(@item4)
+    #   @auction.add_item(@item5)
+    #   @item1.add_bid(@attendee1, 22)
+    #   @item1.add_bid(@attendee2, 20)
+    #   @item4.add_bid(@attendee2, 30)
+    #   @item4.add_bid(@attendee3, 50)
+    #   @item3.add_bid(@attendee2, 15)
+    #   @item5.add_bid(@attendee1, 35)
+    #   expect(@auction.close_auction).to eq({
+    #     @item1 => @attendee2,
+    #     @item2 => "Not Sold",
+    #     @item3 => @attendee2,
+    #     @item4 => @attendee3,
+    #     @item5 => @attendee1
+    #     })
+    # end
   end
 end
