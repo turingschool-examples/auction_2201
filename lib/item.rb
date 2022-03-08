@@ -1,12 +1,17 @@
 class Item 
 attr_reader :name, :bids
 
-def initialize(name)
-  @name = name
-  @bids = {}
-end
+  def initialize(name)
+    @name = name
+    @bids = {}
+  end
 
-def add_bid(attendee, bid)
-  @bids[attendee] = bid
-end
+  def add_bid(attendee, bid)
+    @bids[attendee] = bid
+  end
+  
+  def current_high_bid
+    @bids.map {|attendee, bid| bid}.max
+  end
+  
 end 
