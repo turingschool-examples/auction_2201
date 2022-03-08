@@ -1,8 +1,6 @@
 require 'item'
 require 'attendee'
 
-
-
 class Auction
   attr_reader :items
 
@@ -64,15 +62,3 @@ class Auction
   end
 
 end
-
-
-#items.map { |item| item.bids.keys }.flatten.uniq
-# hash.each do |attendee, sub_hash|
-#   @items.each do |item|
-#     if item.bids.keys.include?(attendee)
-#       sub_hash[:items] << item
-#     end
-#   end
-# end
-#
-# hash

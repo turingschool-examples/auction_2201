@@ -169,12 +169,6 @@ RSpec.describe Item do
       expect(@auction.bidders_as_objects).to eq([@attendee1, @attendee2, @attendee3])
     end
 
-
-
-
-
-
-
   end
 
 
