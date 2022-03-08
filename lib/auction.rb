@@ -23,4 +23,14 @@ class Auction
     high_bids.reject! {|bid| bid.nil?}
     high_bids.sum
   end
+
+  def bidders
+    bidders = []
+    @items.each {|item|
+      item.bids.each{|bidder, bid|
+        bidders << bidder if bid == item.current_high_bid
+      }
+    }
+    bidders.map{|bidder| bidder.name}
+  end
 end
