@@ -10,5 +10,10 @@ RSpec.describe Item do
   it "has a name" do
     item1 = Item.new('Chalkware Piggy Bank')
     expect(item1.name).to eq('Chalkware Piggy Bank')
-  end 
+  end
+
+  it "starts with an empty hash of bids" do
+    item1 = Item.new('Chalkware Piggy Bank')
+    expect(item1.bids).to eq({})
+  end
 end

@@ -22,6 +22,10 @@ class Item
     high_bid.max
   end
 
-  
+  def close_bidding
+
+  end
+
+
 
 end
