@@ -7,6 +7,7 @@ class Auction
 
   def initialize
     @items = []
+    @bids = {}
   end
 
   def add_item(item)
@@ -16,5 +17,5 @@ class Auction
   def item_names
     @items.map {|item| item.name}
   end
-  
+
 end

@@ -7,6 +7,7 @@ RSpec.describe Item do
     @item1 = Item.new('Chalkware Piggy Bank')
     @attendee1 = Attendee.new({name: 'Megan', budget: '$50'})
     @attendee2 = Attendee.new({name: 'Bob', budget: '$75'})
+    @attendee3 = Attendee.new({name: 'Mike', budget: '$100'})
   end
 
   context 'Iteration 1' do
@@ -30,9 +31,10 @@ RSpec.describe Item do
     end
 
     it 'can detect the current highest bid' do
-      @item1.add_bid(@attendee2, 20)
       @item1.add_bid(@attendee1, 22)
-      expect(@item1.current_high_bid).to eq(22)
+      @item1.add_bid(@attendee2, 20)
+      @item1.add_bid(@attendee3, 50)
+      expect(@item1.current_high_bid).to eq(50)
     end
   end
 end
