@@ -18,6 +18,12 @@ class Auction
   end
 
   def potential_revenue
-    binding.pry
+    revenue = 0
+    @items.each do |item|
+      if item.bids.empty? == false
+        revenue += item.current_high_bid
+      end
+    end
+    revenue
   end
 end
