@@ -48,4 +48,11 @@ class Auction
     bidder_info_hash
   end
 
+  def close_auction
+    summary_hash = Hash.new("Not Sold")
+    @items.each do |item|
+      summary_hash[item] = item.sell if item.sell
+    end
+  end
+
 end

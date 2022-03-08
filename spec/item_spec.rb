@@ -50,13 +50,22 @@ RSpec.describe Item do
         @attendee3 => 50
         })
     end
-      
+
     it 'can close bidding' do
       @item1.add_bid(@attendee2, 20)
       @item1.add_bid(@attendee1, 22)
       @item1.close_bidding
       @item1.add_bid(@attendee3, 50)
       expect(@item1.bids).to eq({@attendee2 => 20, @attendee1 => 22})
+    end
+  end
+
+  context 'Iteration 4' do
+    it 'can be sold to the highest bidder if the bidder has the money' do
+      @item1.add_bid(@attendee2, 20)
+      @item1.add_bid(@attendee1, 22)
+      @item1.add_bid(@attendee3, 150)
+      expect(@item1.sell).to eq(@attendee1)
     end
   end
 end
