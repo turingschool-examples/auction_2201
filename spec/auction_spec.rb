@@ -125,9 +125,25 @@ RSpec.describe Auction do
       expect(@item1.bids).to eq({@attendee1 => 22, @attendee2 => 20})
     end
 
-    xit 'can read the bidder info of an auction' do
+    it 'can read the bidder info of an auction' do
 
-      expect(@auction.bidder_info).to eq({})
+      expect(@auction.bidder_info).to eq({
+    @attendee1 =>
+      {
+        :budget => 50,
+        :items => [@item1]
+      },
+    @attendee2 =>
+      {
+        :budget => 75,
+        :items => [@item1, @item3]
+      },
+    @attendee3 =>
+      {
+        :budget => 100,
+        :items => [@item4]
+      }
+   })
     end
   end
 end
