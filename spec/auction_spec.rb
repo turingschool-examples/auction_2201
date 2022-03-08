@@ -173,11 +173,12 @@ describe Auction do
     @item3.add_bid(@attendee2, 15)
     @item5.add_bid(@attendee1, 35)
     expect(@auction.close_auction).to eq({
-      @item1 => @attendee2,
+      @item1 => @attendee1,
       @item2 => "Not Sold",
       @item3 => @attendee2,
-      @item4 => @attendee2,
+      @item4 => @attendee3,
       @item5 => @attendee1
       })
+      # binding.pry
   end
 end

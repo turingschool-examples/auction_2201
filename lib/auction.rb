@@ -4,7 +4,7 @@ class Auction
   attr_reader :items, :date
   def initialize
     @items = []
-    @date = Date.today
+    @date = Date.today.to_s.gsub("-", "/")
   end
 
   def add_item(item)
@@ -46,5 +46,23 @@ class Auction
       }
     }
     bidders
+  end
+
+  def close_auction
+    items_sold = sell_items
+    # I was planning to use some helper methods to determine which attendee
+    # could buy what based on their budget and bids, but ran out of time
+    # at this point and decided to turn in what I had.
+  end
+
+  def sell_items
+    items_sold = Hash.new(0)
+    @items.each do |item|
+      items_sold[item] = 'Not Sold' if item.bids.empty?
+      item.bids.map do |bidder, bid|
+        items_sold[item] = bidder if bid == item.current_high_bid
+      end
+    end
+    items_sold
   end
 end
