@@ -72,6 +72,10 @@ RSpec.describe Item do
       @auction.add_item(@item5)
     end
 
+    it 'item has no/empty bids' do
+      expect(@item1.bids).to eq({})
+    end
+
 
 
 
