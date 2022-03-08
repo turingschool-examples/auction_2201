@@ -31,4 +31,14 @@ class Auction
     end.uniq
   end
 
+  def bidder_info
+    bidder_info_hash = {}
+    bidders.each do |bidder|
+      bidder_info_hash[bidder] ||= {budget: 0, items: []}
+      bidder_info_hash[bidder][:budget] = bidder.budget
+      bidder_info_hash[bidder][:items] = @items.find_all {|item| item.bids.keys.include?(bidder)}
+    end
+    bidder_info_hash
+  end
+
 end

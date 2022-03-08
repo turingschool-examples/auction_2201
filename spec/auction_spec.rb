@@ -100,7 +100,6 @@ RSpec.describe Auction do
           :items => [@item4]
           }
         })
-
     end
   end
 end
