@@ -1,4 +1,5 @@
 require 'pry'
+require 'date'
 class Auction
   attr_reader :items
 
@@ -56,8 +57,11 @@ class Auction
         end
       end
     end
-    # binding.pry
     return bidder_hash
+  end
+
+  def date
+    today = Date.today.strftime("%d/%m/%Y")
   end
 
 end
