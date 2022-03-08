@@ -15,10 +15,18 @@ RSpec.describe Attendee do
     expect(@auction).to be_a(Auction)
     expect(@auction.items).to eq([])
   end
+  
   it "adds an item" do
     @auction.add_item(@item1)
     @auction.add_item(@item2)
     expect(@auction.items).to eq ([@item1, @item2])
+  end
+  
+  it "can find item names" do
+    @auction.add_item(@item1)
+    @auction.add_item(@item2)
+    expect(@auction.item_names).to eq(["Chalkware Piggy Bank", "Bamboo Picture Frame"])
+    
   end
 
 
