@@ -65,7 +65,7 @@ require './lib/attendee'
     auction.add_item(item5)
     item1.add_bid(attendee2, 20)
     item1.add_bid(attendee1, 22)
-    expect(item1.current_height_bid).to eq(22)
+    expect(item1.current_highest_bid).to eq(22)
   end
 
 end
