@@ -1,5 +1,5 @@
 require 'pry'
-require './lib/items'
+require './lib/item'
 require './lib/auction'
 
 RSpec.describe Auction do
@@ -9,7 +9,7 @@ RSpec.describe Auction do
     end
 
     it 'exists ' do
-      expect(@uaction).to be_a(Auction)
+      expect(@auction).to be_a(Auction)
     end
 
     it 'Auction #item is an empty array' do
@@ -21,13 +21,17 @@ RSpec.describe Auction do
       @auction = Auction.new
       @item1 = Item.new('Chalkware Piggy Bank')
       @item2 = Item.new('Bamboo Picture Frame')
+
+      @auction.add_item(@item1)
+      @auction.add_item(@item2)
     end
 
     it 'Auction #add_item' do
       expect(@auction.items).to eq([@item1, @item2])
     end
 
-    it 'Auction #item is populates' do
+    it 'Auction #item populates after #add_item' do
+      expect(@auction.items_names).to eq(['Chalkware Piggy Bank', 'Bamboo Picture Frame'])
     end
   end
 end
