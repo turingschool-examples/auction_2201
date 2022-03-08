@@ -32,5 +32,12 @@ class Auction
     array_sum.compact.sum
   end
 
+  def bidders
+    @items.map do |item|
+      if !item.bids.empty?
+        item.bidder_names
+      end
+    end.flatten.compact.uniq
+  end
 
 end

@@ -77,7 +77,7 @@ RSpec.describe Auction do
     expect(@auction.unpopular_items).to eq([@item2, @item3, @item5])
   end
 
-  it 'has potential_revenue' do
+  it 'has an array of bidders' do
     expect(@item1.bids).to eq({})
     @auction.add_item(@item1)
     @auction.add_item(@item2)
