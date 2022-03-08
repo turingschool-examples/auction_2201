@@ -13,6 +13,7 @@ RSpec.describe Auction do
     @attendee1 = Attendee.new({name: 'Megan', budget: '$50'})
     @attendee2 = Attendee.new({name: 'Bob', budget: '$75'})
     @attendee3 = Attendee.new({name: 'Mike', budget: '$100'})
+    allow(Date).to receive(:today).and_return Date.new(2020, 2, 24)
   end
 
   it 'initializes with no items' do
@@ -102,5 +103,7 @@ RSpec.describe Auction do
     })
   end
 
-
+  it 'can have a date' do
+    expect(@auction.date).to eq("24/02/2020")
+  end
 end
