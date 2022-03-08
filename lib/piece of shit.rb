@@ -1,5 +1,5 @@
-require 'auction.rb'
-require 'attendee.rb'
+require './lib/auction.rb'
+require './lib/attendee.rb'
 
 class Item
   attr_reader :name, :bids
@@ -9,8 +9,6 @@ class Item
     @bids = {}
   end
 
-  def add_bid(attendee, bid)
-    @bids[:attendee]=bid
-  end
+  def item_names
 
 end

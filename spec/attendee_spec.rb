@@ -1,20 +1,27 @@
-require './lib/item'
-require './lib/auction'
-require './lib/attendee'
+require './lib/item.rb'
+require './lib/auction.rb'
+require './lib/attendee.rb'
 
-RSpec.describe Item do
+RSpec.describe Attendee do
   before :each do
-    @item1 = Item.new('Chalkware Piggy Bank', bids = {})
-
-    @item2 = Item.new("Bamboo Picture Frame", bids = {})
+    @attendee = Attendee.new({name: 'Megan', budget: '$50'})
   end
 
   it 'exists' do
-    expect(@item1).to be_a(Item)
-    expect(@items2).to be_a(Item)
+    expect(@attendee).to be_a(Attendee)
   end
-
 
   it 'has attributes' do
-    expect(@item1.name).to eq("Chalkware Piggy Bank")
+      expect(@attendee.name).to eq('Megan')
+  expect(@attendee.budget).to eq(50)
   end
+
+end
+
+context 'iteration 2' do
+  before :each do
+  attendee1 = Attendee.new({name: 'Megan', budget: '$50'})
+  attendee2 = Attendee.new({name: 'Bob', budget: '$75'})
+  attendee3 = Attendee.new({name: 'Mike', budget: '$100'})
+end
+end
