@@ -57,4 +57,8 @@ RSpec.describe Auction do
     expect(auction.potential_revenue).to eq(87)
   end
 
+  it 'displays auction bidder names across all items' do
+    expect(auction.bidders).to eq(["Megan", "Bob", "Mike"])
+  end
+
 end
