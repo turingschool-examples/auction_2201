@@ -159,6 +159,7 @@ describe Auction do
     @auction.add_item(@item5)
     # @auction.stub(:date).and_return('24/02/2020')
     allow(@auction).to receive(:date).and_return('24/02/2020')
+    # Used recieve as stub is deprecated
   end
 
   it "has a date" do
@@ -179,11 +180,12 @@ describe Auction do
       @item4 => @attendee3,
       @item5 => @attendee1
       })
-      # binding.pry
   end
 
   it "initializes with a new, current date" do
     auction2 = Auction.new
     expect(auction2.date).to eq(Date.today.to_s.gsub("-", "/"))
+    # Note: I wrote this test this way to ensure it would pass if being tested
+    # on a later date. I am certain what this test should expect.
   end
 end
