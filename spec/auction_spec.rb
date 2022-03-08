@@ -28,6 +28,7 @@ RSpec.describe 'auction' do
 
   it 'action adds items' do
     item1 = Item.new('Chalkware Piggy Bank')
+    item2 = Item.new('Bamboo Picture Frame')
     attendee = Attendee.new({name: 'Megan', budget: '$50'})
     auction = Auction.new
     auction.add_item(item1)
@@ -37,6 +38,7 @@ RSpec.describe 'auction' do
 
   it 'action adds items' do
     item1 = Item.new('Chalkware Piggy Bank')
+    item2 = Item.new('Bamboo Picture Frame')
     attendee = Attendee.new({name: 'Megan', budget: '$50'})
     auction = Auction.new
     auction.add_item(item1)
