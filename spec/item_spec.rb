@@ -65,6 +65,11 @@ RSpec.describe Item do
       @attendee2 = Attendee.new({name: 'Bob', budget: '$75'})
       @attendee3 = Attendee.new({name: 'Mike', budget: '$100'})
       @auction = Auction.new
+      @auction.add_item(@item1)
+      @auction.add_item(@item2)
+      @auction.add_item(@item3)
+      @auction.add_item(@item4)
+      @auction.add_item(@item5)
     end
 
 
