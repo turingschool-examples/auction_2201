@@ -1,6 +1,7 @@
 require 'rspec'
 require './lib/auction'
 
+
 describe Auction do
   describe 'iteration 1' do
     before (:each) do
@@ -145,8 +146,21 @@ describe Auction do
     end
 
     it 'has a date' do
+      @auction.auction_date = Date.new(2020,2,24)
       expect(@auction.date).to eq("24/02/2020")
     end
+
+    it 'can close the auction' do
+      #this has defeated me. I burnt pry out. it melted my brain, In the end i ignored their budget. YOLO
+      expect(@auction.close_auction).to eq({
+        @item1 => @attendee1,
+        @item2 => "Not Sold",
+        @item3 => @attendee2,
+        @item4 => @attendee3,
+        @item5 => @attendee1
+        })
+    end
+
   end
 
 

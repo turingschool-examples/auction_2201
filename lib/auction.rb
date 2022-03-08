@@ -3,11 +3,12 @@ require 'date'
 
 class Auction
   attr_reader :items
+  attr_accessor :auction_date
 
   def initialize
     @items = []
     @auction_date = Date.today
-    require "pry"; binding.pry
+    # require "pry"; binding.pry
   end
 
   def add_item(item)
@@ -15,7 +16,8 @@ class Auction
   end
 
   def date
-    @auction_date.to_s.gsub!(/-/, "/")
+    string_date = @auction_date.to_s.split("-")
+    [string_date[2], string_date[1], string_date[0]].join("/")
   end
 
 
@@ -54,4 +56,18 @@ class Auction
     info
   end
 
+  def close_auction
+    atten_wins = {}
+    @items.each do |item|
+      atten_wins[item] = "Not Sold"
+      bidder_info.each do |bidder, info|
+        info[:items].each do |item|
+          if item.current_high_bid == item.bids[bidder] && item.current_high_bid <= bidder.budget
+            atten_wins[item] = bidder
+          end
+        end
+      end
+    end
+    atten_wins
+  end
 end
