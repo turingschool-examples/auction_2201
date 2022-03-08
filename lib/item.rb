@@ -16,7 +16,6 @@ class Item
   end
 
   def current_high_bid
-    binding.pry
     @bids.values.sort.reverse[0]
   end
 
