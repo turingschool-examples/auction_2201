@@ -2,7 +2,7 @@ require './lib/attendee'
 require 'pry'
 require 'rspec'
 
-RSpec.describe Item do
+RSpec.describe Attendee do
   before :each do
     @attendee = Attendee.new({name: 'Megan', budget: '$50'})
   end
@@ -12,7 +12,7 @@ RSpec.describe Item do
   end
 
   it 'has attributes' do
-    expect(@item1.name).to eq('Megan')
-    expect(@item1.budget).to eq(50)
+    expect(@attendee.name).to eq('Megan')
+    expect(@attendee.budget).to eq(50)
   end
 end
