@@ -15,4 +15,11 @@ class Auction
     end
   end
 
+  def unpopular_items
+    @items.map do |item|
+
+
+    end
+    require "pry"; binding.pry
+  end
 end
