@@ -32,4 +32,18 @@ class Auction
     names
   end
 
+  def attendees
+    in_attendance = []
+    @items.each { |item| in_attendance << item.bids.keys }
+    in_attendance.flatten.uniq
+  end
+
+  def bidder_info
+    output = {}
+    attendees.each do |attendee|
+      output[attendee] = {budget: attendee.budget, items:[]}
+      @items.each { |item| output[attendee][:items] << item if item.bids.keys.include?(attendee)}
+    end
+    output
+  end
 end
