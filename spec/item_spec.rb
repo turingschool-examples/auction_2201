@@ -13,4 +13,8 @@ describe Item do
   it 'has a name' do
     expect(@item.name).to eq("Chalkware Piggy Bank")
   end
+
+  it 'has bids' do
+    expect(@item.bids).to eq({})
+  end
 end
