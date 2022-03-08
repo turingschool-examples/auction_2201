@@ -2,26 +2,25 @@ require './lib/item'
 require './lib/auction'
 require './lib/attendee'
 
+RSpec.describe Auction do
+  before(:each) do
+    @auction = Auction.new
 
- RSpec.describe Auction do
- 	before(:each) do
- 		@auction = Auction.new
-
-    attendee1 = Attendee.new({name: 'Megan', budget: '$50'})
-    @attendee2 = Attendee.new({name: 'Bob', budget: '$75'})
-    @attendee3 = Attendee.new({name: 'Mike', budget: '$100'})
+    @attendee1 = Attendee.new({ name: 'Megan', budget: '$50' })
+    @attendee2 = Attendee.new({ name: 'Bob', budget: '$75' })
+    @attendee3 = Attendee.new({ name: 'Mike', budget: '$100' })
 
     @item1 = Item.new('Chalkware Piggy Bank')
     @item2 = Item.new('Bamboo Picture Frame')
     @item3 = Item.new('Homemade Chocolate Chip Cookies')
     @item4 = Item.new('2 Days Dogsitting')
     @item5 = Item.new('Forever Stamps')
- 	end
+  end
 
- 	it 'is initialized with an empty collection of items' do
- 		expect(@auction).to be_instance_of(Auction)
+  it 'is initialized with an empty collection of items' do
+    expect(@auction).to be_instance_of(Auction)
     expect(@auction.items).to eq([])
- 	end
+  end
 
   describe '#add_items' do
     before (:each) do
@@ -44,7 +43,7 @@ require './lib/attendee'
       expect(@item1.bids).to eq({})
       @item1.add_bid(@attendee2, 20)
       @item1.add_bid(@attendee1, 22)
-      expect(@item1.bids).to eq({ @attendee2 => 20, @attendee1 => 22})
+      expect(@item1.bids).to eq({ @attendee2 => 20, @attendee1 => 22 })
       expect(@item1.current_high_bid).to eq(22)
     end
 
@@ -70,5 +69,38 @@ require './lib/attendee'
       @item3.add_bid(@attendee2, 15)
       expect(@auction.potential_revenue).to eq(87)
     end
+
+    it 'can list names of bidder' do
+      @auction.add_item(@item3)
+      @auction.add_item(@item4)
+      @auction.add_item(@item5)
+      @item1.add_bid(@attendee2, 20)
+      @item1.add_bid(@attendee1, 22)
+      @item4.add_bid(@attendee3, 50)
+      @item3.add_bid(@attendee2, 15)
+      expect(@auction.bidders).to eq(["Megan", "Bob", "Mike"])
+    end
+
+    it 'Item can close bidding' do
+      @item1.add_bid(@attendee2, 20)
+      @item1.add_bid(@attendee1, 22)
+      expect(@item1.bids).to eq({ @attendee1 => 22, @attendee2 => 20 })
+      @item1.close_bidding
+      @item1.add_bid(@attendee3, 70)
+      expect(@item1.bids).to eq({ @attendee1 => 22, @attendee2 => 20 })
+    end
+
+    it 'can list bidder_info' do
+      @auction.add_item(@item3)
+      @auction.add_item(@item4)
+      @auction.add_item(@item5)
+      @item1.add_bid(@attendee1, 22)
+      @item1.add_bid(@attendee2, 20)
+      @item2.add_bid(@attendee2, 15)
+      @item4.add_bid(@attendee3, 50)
+      expect(@auction.bidder_info).to eq({ @attendee1 => { :budget => '$50', :items => [@item1] },
+                                           @attendee2 => { :budget => '$75', :items => [@item1, @item2] },
+                                           @attendee3 => { :budget => '$100', :items => [@item4] } })
+    end
   end
- end
+end

@@ -4,7 +4,7 @@ require './lib/attendee'
 
 RSpec.describe Attendee do
   before(:each) do
-    @attendee = Attendee.new({name: 'Megan', budget: '$50'})
+    @attendee = Attendee.new({ name: 'Megan', budget: '$50' })
   end
 
   describe 'initialize' do
