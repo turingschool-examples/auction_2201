@@ -6,10 +6,10 @@ class Auction
   end
 
   def add_item(item)
-    @items << item
+    items << item
   end
 
   def item_names
-    @items.map { |item| item.name }
+    items.map { |item| item.name }
   end
 end
