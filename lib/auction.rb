@@ -50,4 +50,38 @@ class Auction
     bidder_names
   end
 
+  def bidder_info
+    hash = {}
+
+    bidders = []
+    @items.each do |item|
+      item.bids.each do |attendee, amount|
+        bidders << attendee
+      end
+    end
+    bidders.each do |bidder|
+      hash[bidder] = {budget: bidder.budget, items: []}
+    end
+    hash.each do |attendee, sub_hash|
+      @items.each do |item|
+        if item.bids.keys.include?(attendee)
+          sub_hash[:items] << item
+        end
+      end
+    end
+    hash
+  end
+
 end
+
+
+#items.map { |item| item.bids.keys }.flatten.uniq
+# hash.each do |attendee, sub_hash|
+#   @items.each do |item|
+#     if item.bids.keys.include?(attendee)
+#       sub_hash[:items] << item
+#     end
+#   end
+# end
+#
+# hash
