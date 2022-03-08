@@ -33,4 +33,16 @@ class Auction
     }
     bidders.map{|bidder| bidder.name}
   end
+
+  def bidder_info
+    bidders = Hash.new(0)
+    @items.each{ |item|
+    item.bids.each{|bidder, bid| bidders[bidder] = Hash.new(0)}}
+    bidders.each {|bidder, hash| hash[:budget] = bidder.budget}
+    bidders.each {|bidder, hash| hash[:items] = @items.find_all{|item|
+      item.bids.keys.include?(bidder)
+      }
+    }
+    bidders
+  end
 end
