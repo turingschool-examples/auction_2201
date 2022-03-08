@@ -52,6 +52,10 @@ RSpec.describe 'Auction' do
       expect(auction.popular_items).to eq [item1, item3, item4]
     end
 
+    it 'finds all top bids for items with bids' do
+      expect(auction.top_bids).to eq [22, 15, 50]
+    end
+
     it 'Finds potential revenue from current highest bids' do
       expect(auction.potential_revenue).to eq 87
     end

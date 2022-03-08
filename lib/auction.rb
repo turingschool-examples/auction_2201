@@ -24,6 +24,6 @@ class Auction
   end
 
   def potential_revenue
-    items.map { |item| item.current_highest_bid }
+    popular_items.map { |item| item.current_highest_bid }
   end
 end
