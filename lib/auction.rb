@@ -25,4 +25,10 @@ class Auction
     @items.map {|item| item.current_high_bid}.compact.sum
   end
 
+  def bidders
+    @items.flat_map do |item|
+      item.bids.map {|attendee, bid| attendee}
+    end.uniq
+  end
+
 end
