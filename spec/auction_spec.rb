@@ -16,7 +16,7 @@ RSpec.describe Auction do
     @auction.add_item(@item1)
     @auction.add_item(@item2)
 
-    expect(@auction.items).to eq(@item1, @item2)
+    expect(@auction.items).to eq([@item1, @item2])
   end
 
   it "returns item names through a method item_names" do
