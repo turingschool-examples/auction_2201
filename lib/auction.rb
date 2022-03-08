@@ -1,4 +1,4 @@
-
+require 'date'
 
 class Auction
 
