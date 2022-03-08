@@ -14,6 +14,10 @@ class Auction
   end
 
   def unpopular_items
-    unpopular_items = @items.find_all { |item| item.bids.empty?} 
+    unpopular_items = @items.find_all { |item| item.bids.empty?}
+  end
+
+  def potential_revenue
+    binding.pry
   end
 end
