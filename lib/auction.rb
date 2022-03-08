@@ -3,7 +3,7 @@ class Auction
 
   def initialize()
     @items = []
-    @date = Date.today
+    @date = Date.today.strftime("%d/%m/%Y")
   end
 
   def add_item(item)
