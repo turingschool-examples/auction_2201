@@ -21,4 +21,10 @@ class Auction
     @items.find_all {|item| item.bids.empty?}
   end
 
+  def potential_revenue
+    all_bids = @items.map {|item| item.current_high_bid}
+    all_bids.delete(nil)
+    all_bids.sum
+  end
+
 end
