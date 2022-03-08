@@ -18,7 +18,12 @@ class Auction
   def potential_revenue
     @items.map {|item| item.current_high_bid}.compact.sum
   end
-
+  def bidders
+    @items.map do |item| 
+      item.bids.map {|attendee, bid| attendee.name}
+    end 
+    .flatten.uniq
+  end
 
 
 end 
