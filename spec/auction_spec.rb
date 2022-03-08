@@ -126,17 +126,17 @@ RSpec.describe Auction do
           @attendee1 =>
             {
               :budget => 50,
-              :items => [item]
+              :items => [@item1]
             },
           @attendee2 =>
             {
               :budget => 75,
-              :items => [item, item]
+              :items => [@item1, @item3]
             },
           @attendee3 =>
             {
               :budget => 100,
-              :items => [item]
+              :items => [@item4]
             }
          }
     )

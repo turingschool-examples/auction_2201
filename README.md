@@ -208,11 +208,11 @@ pry(main)> item1.bids x
 #=> {#<Attendee:0x00007ff177a45108 ...> => 22, #<Attendee:0x00007ff17816a4b0 ...> => 20}
 
 pry(main)> item1.close_bidding
-`close_bidding` should update the item so that it will not accept additional bids.
+`close_bidding` should update the item so that it will not accept additional bids. x
 
 pry(main)> item1.add_bid(@attendee3, 70)
 
-pry(main)> item1.bids
+pry(main)> item1.bids x
 #=> {#<Attendee:0x00007ff177a45108 ...> => 22, #<Attendee:0x00007ff17816a4b0 ...> => 20}
 
 pry(main)> auction.bidder_info
@@ -233,8 +233,10 @@ pry(main)> auction.bidder_info
  #        :items => [#<Item:0x00007ff177a9d858...>]
  #      }
  #   }
+# - `bidder_info` should return a hash with keys that are attendees, and values that are a hash with that attendee's budget and an array of items that attendee has bid on.
 
 ```
+
 
 ## Iteration 4 - Dates ! And closing the auction
 
