@@ -1,15 +1,23 @@
 require './lib/attendee'
+require 'date'
 
 class Auction
   attr_reader :items
 
   def initialize
     @items = []
+    @auction_date = Date.today
+    require "pry"; binding.pry
   end
 
   def add_item(item)
     @items << item
   end
+
+  def date
+    @auction_date.to_s.gsub!(/-/, "/")
+  end
+
 
   def item_names
     @items.map {|item| item.name}
