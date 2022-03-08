@@ -81,6 +81,10 @@ RSpec.describe 'Auction' do
     item4.add_bid(attendee3, 50)
     item3.add_bid(attendee2, 15)
 
+    it 'shows all Attendee instances with bids' do
+      expect(auction.unique_bidders).to eq [attendee2, attendee1, attendee3]
+    end
+
     it 'Tells you everyone who has bid on items at the auction' do
       expect(auction.bidders).to eq ['Megan', 'Bob', 'Mike']
     end
