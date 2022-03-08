@@ -22,4 +22,8 @@ class Auction
   def potential_revenue
     items.map { |item| item.current_high_bid.to_i }.sum
   end
+
+  def bidders
+    items.map { |item| item.bids.keys.map { |key| key.name }.flatten }.flatten.uniq
+  end
 end

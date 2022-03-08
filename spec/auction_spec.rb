@@ -95,7 +95,7 @@ RSpec.describe Auction do
     item4.add_bid(attendee3, 50)
     item3.add_bid(attendee2, 15)
 
-    it "Auction finds bidders" do
+    it "Auction lists bidders" do
       expect(auction.bidders).to eq(["Megan", "Bob", "Mike"])
     end
   end
