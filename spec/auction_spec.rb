@@ -107,5 +107,14 @@ describe Auction do
     it "can list bidders" do
       expect(@auction.bidders).to eq(["Megan", "Bob", "Mike"])
     end
+
+    it "can close bidding" do
+      @item1.close_bidding
+      @item1.add_bid(@attendee3, 70)
+      expect(@item1.bids).to eq({
+          @attendee2 => 20,
+          @attendee1 => 22
+          })
+    end
   end
 end
