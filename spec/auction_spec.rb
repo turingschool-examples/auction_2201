@@ -1,6 +1,7 @@
 require './lib/auction'
 require './lib/item'
 require './lib/attendee'
+require 'date'
 
 RSpec.describe Auction do
   before (:each) do
