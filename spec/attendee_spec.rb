@@ -10,8 +10,8 @@ RSpec.describe Attendee do
   end 
   it "exists" do
     expect(@attendee).to be_a(Attendee)
-    expect(attendee.name).to eq("Megan")
-    expect(attendee.budget).to eq("50")
+    expect(@attendee.name).to eq("Megan")
+    expect(@attendee.budget).to eq(50)
   end
 
 
