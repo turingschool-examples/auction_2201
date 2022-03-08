@@ -27,7 +27,7 @@ RSpec.describe Item do
   it 'can see the highest bid' do
     @item1.add_bid(@attendee1, 20)
     @item1.add_bid(@attendee2, 24)
-    expect(@item.current_high_bid).to eq(24)
+    expect(@item1.current_high_bid).to eq(24)
   end
 
 end
