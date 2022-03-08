@@ -20,5 +20,14 @@ class Auction
       total_bids = item.bids.values.sum.to_i
   end
 
+  def unpopular_items
+    unpopular_items = []
+    @items.each do |item|
+      if total_bids(item) == 0
+        unpopular_items << item
+      end
+    end
+    unpopular_items 
+  end
 
 end
