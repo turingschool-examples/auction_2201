@@ -40,6 +40,8 @@ RSpec.describe Auction do
     attendee3 = Attendee.new({name: "Mike", budget: "$100"})
 
     it "Item adds bids" do
+      auction.add_item(item1)
+      auction.add_item(item2)
       auction.add_item(item3)
       auction.add_item(item4)
       auction.add_item(item5)
@@ -57,7 +59,7 @@ RSpec.describe Auction do
       expect(item1.current_high_bid).to eq(22)
     end
 
-    it "Auction reads unpopular items" do
+    it "Auction finds unpopular items" do
       item4.add_bid(attendee3, 50)
       expect(auction.unpopular_items).to eq([item2, item3, item5])
     end
