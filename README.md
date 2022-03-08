@@ -141,7 +141,7 @@ pry(main)> auction.potential_revenue
 ## Iteration 3 - More bidding stuff!
 
 Use TDD to update your classes to respond to the following interaction pattern.  Some notes:
-- `bidders` should list the names of each attendee that bid on the item. 
+- `bidders` should list the names of each attendee that has bid on an item at the auction. 
 - `close_bidding` should update the item so that it will not accept additional bids.
 - `bidder_info` should return a hash with keys that are attendees, and values that are a hash with that attendee's budget and an array of items that attendee has bid on.
 
@@ -274,7 +274,7 @@ pry(main)> attendee1 = Attendee.new({name: 'Megan', budget: '$50'})
 pry(main)> attendee2 = Attendee.new({name: 'Bob', budget: '$75'})
 #=> #<Attendee:0x00007f9ea50c4748 ...>
 
- pry(main)> attendee3 = Attendee.new({name: 'Mike', budget: '$100')
+ pry(main)> attendee3 = Attendee.new({name: 'Mike', budget: '$100'})
 #=> #<Attendee:0x00007f9ea50b5b58 ...>
 
 pry(main)> auction = Auction.new
