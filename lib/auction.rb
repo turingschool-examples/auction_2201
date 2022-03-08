@@ -1,3 +1,4 @@
+require 'pry'
 class Auction
   attr_reader :items
 
@@ -45,4 +46,15 @@ class Auction
     names.uniq
   end
 
+  def bidder_info
+    info = Hash.new(0)
+    @items.each do |item|
+      item.bids.each do |attendee, bid|
+        info[attendee] = {:budget => 0, :items => []} if !info.has_key?(attendee)
+        info[attendee][:budget] += attendee.budget if info[attendee][:budget] == 0
+        info[attendee][:items] << item
+      end
+    end
+    info
+  end
 end
