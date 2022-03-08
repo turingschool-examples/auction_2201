@@ -62,6 +62,14 @@ RSpec.describe Auction do
       @item4.add_bid(@attendee3, 50)
       expect(@auction.unpopular_items).to eq([@item2, @item3, @item5])
     end
+
+    it "updates unpopular items as bids come in" do
+      @item1.add_bid(@attendee2, 20)
+      @item1.add_bid(@attendee1, 22)
+      @item4.add_bid(@attendee3, 50)
+      @item3.add_bid(@attendee2, 15)
+      expect(@auction.unpopular_items).to eq([@item2, @item5])
+    end
   end
 
 end
