@@ -6,4 +6,8 @@ class Item
     @bids = Hash.new(0)
     @name = name
   end
+
+  def add_bid(attendee, amount)
+    @bids[attendee] += amount
+  end
 end
