@@ -17,7 +17,7 @@ RSpec.describe 'Item' do
     item5 = Item.new('Forever Stamps')
 
     it 'Has a bids attribute' do
-      expect(item1.bids).to eq {}
+      expect(item1.bids).to eq({})
     end
   end
 
