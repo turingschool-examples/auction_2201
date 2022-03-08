@@ -47,6 +47,17 @@ RSpec.describe Item do
     it "has no bids by default" do
       expect(@item1.bids).to eq({})
     end
+
+    it "can add item bids" do
+      @item1.add_bid(@attendee2, 20)
+      @item1.add_bid(@attendee1, 22)
+
+      expected = {
+        @attendee2: 20,
+        @attendee1: 22
+        }
+      expect(@item1.bids).to eq({expected})
+    end
   end
 
 end
