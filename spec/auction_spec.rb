@@ -63,5 +63,11 @@ RSpec.describe Auction do
         @attendee1 => 22,
         })
     end
+
+    it "can read current high bid" do
+      @item1.add_bid(@attendee2, 20)
+      @item1.add_bid(@attendee1, 22)
+      expect(@item1.current_high_bid).to eq(22)
+    end
   end
 end
