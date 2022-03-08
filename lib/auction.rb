@@ -33,4 +33,17 @@ class Auction
     bidders.uniq
   end
 
+  def bidder_info
+    info = {}
+    @items.each do |item|
+      item.bids.keys.each do |attendee|
+        if !info.keys.include?(attendee)
+          info[attendee] = {:budget => attendee.budget, :items => []}
+        end
+        info[attendee][:items] << item
+      end
+    end
+    info
+  end
+
 end
