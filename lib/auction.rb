@@ -17,4 +17,12 @@ class Auction
     lowest_bid_count = @items.map { |items| items.bids.count }.min
     @items.find_all { |items| items.bids.count <= lowest_bid_count }
   end
+
+  def items_bid_on
+    items.find_all { |item| item.bids != {} }
+  end
+
+  def potential_revenue
+    items_bid_on.map { |item| item.current_high_bid }.sum
+  end
 end
