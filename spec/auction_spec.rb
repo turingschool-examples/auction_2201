@@ -46,4 +46,9 @@ RSpec.describe Auction do
     expect(item1.current_high_bid).to eq(22)
   end
 
+  it 'can display items with no bids' do
+    item3.add_bid(attendee2,15)
+    expect(auction.unpopular_items).to eq([item2,item4,item5])
+  end
+
 end
