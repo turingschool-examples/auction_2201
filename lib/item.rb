@@ -1,7 +1,8 @@
 class Item
-  attr_reader :bids, :name
+  attr_reader :bids,
+              :name
 
-  def initialize(_info)
+  def initialize(name)
     @bids = Hash.new(0)
     @name = name
   end
