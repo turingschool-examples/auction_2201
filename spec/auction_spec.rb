@@ -113,7 +113,7 @@ RSpec.describe Auction do
       @item3.add_bid(@attendee2, 15)
     end
 
-    xit 'can list all the bidders in an auction' do
+    it 'can list all the bidders in an auction' do
 
       expect(@auction.bidders).to eq(["Megan", "Bob", "Mike"])
     end
