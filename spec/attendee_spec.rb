@@ -1,4 +1,5 @@
 require "./lib/item"
+require "./lib/attendee"
 
 describe Item do
   before(:each) do
