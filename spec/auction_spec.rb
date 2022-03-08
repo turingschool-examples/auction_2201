@@ -53,6 +53,19 @@ describe Auction do
       @item1.add_bid(@attendee1, 22)
       expect(@item1.bids).to eq({@attendee2 => 20, @attendee1 => 22})
     end
+
+    it 'can tell you the highest bid' do
+      @item1.add_bid(@attendee2, 20)
+      @item1.add_bid(@attendee1, 22)
+      expect(@item1.current_high_bid).to eq(22)
+    end
+
+    it 'can tell you the unpopular items' do
+      @item1.add_bid(@attendee2, 20)
+      @item1.add_bid(@attendee1, 22)
+      @item3.add_bid(@attendee3, 50)
+      expect(@auction.unpopular_items).to eq([@item2, @item4, @item5])
+    end
   end
 
 end
