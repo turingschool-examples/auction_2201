@@ -77,4 +77,18 @@ RSpec.describe Auction do
     expect(@auction.unpopular_items).to eq([@item2, @item3, @item5])
   end
 
+  it 'has potential_revenue' do
+    expect(@item1.bids).to eq({})
+    @auction.add_item(@item1)
+    @auction.add_item(@item2)
+    @auction.add_item(@item3)
+    @auction.add_item(@item4)
+    @auction.add_item(@item5)
+    @item1.add_bid(@attendee2, 20)
+    @item1.add_bid(@attendee1, 22)
+    expect(@item1.current_high_bid).to eq(22)
+    @item4.add_bid(@attendee3, 50)
+    expect(@auction.potential_revenue).to eq(87)
+  end
+
 end
