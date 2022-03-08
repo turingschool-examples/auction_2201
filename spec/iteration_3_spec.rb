@@ -28,7 +28,13 @@ context 'iteration_3' do
     it 'lists bidders by name' do
       expect(@auction.bidders).to eq ["Megan", "Bob", "Mike"]
     end
-  end
+
+    it 'lists bidder info' do
+      expect(@auction.bidder_info).to eq ({@attendee1 => {:budget => 50, :items => [@item1]},
+                                          @attendee2 => {:budget => 75, :items => [@item1,@item3]},
+                                          @attendee3 => {:budget => 100, :items => [@item4]}})
+    end
+  end 
   describe Item do
     it 'does not accept bids after close_bidding' do
       @item1.close_bidding
@@ -36,4 +42,4 @@ context 'iteration_3' do
       expect(@item1.bids).to eq ({@attendee2 => 20,@attendee1 => 22})
     end
   end
-end 
+end

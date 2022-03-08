@@ -29,4 +29,19 @@ attr_reader :items
     bidding_attendees.map{|bidder| bidder.name}
   end
 
-end
+  def bidder_info
+    bidder_info = {}
+    items_with_bids = @items.find_all{|item| item.bids != {}}
+    # require "pry"; binding.pry
+    items_with_bids.each { |item|
+      item.bids.keys.each { |attendee, bid|
+        bidder_info[attendee] = {budget: attendee.budget, items: []} if !bidder_info.key?(attendee)
+        bidder_info[attendee][:items] << item
+                          }
+                        }
+    bidder_info
+
+  end
+
+
+  end
