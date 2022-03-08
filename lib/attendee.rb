@@ -9,5 +9,9 @@ class Attendee
     @name = attributes[:name]
     @budget = attributes[:budget][1..-1].to_i
   end
-  
+
+  def update_budget(difference)
+    @budget = @budget - difference
+  end
+
 end

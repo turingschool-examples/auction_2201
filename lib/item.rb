@@ -30,4 +30,11 @@ class Item
     @closed = true
   end
 
+  def sell
+    wise_bidders = @bids.find_all do |attendee, bid|
+      attendee if bid <= attendee.budget
+    end.sort {|attendee| attendee[1]}
+    wise_bidders.map! {|attendee| attendee[0]}
+    wise_bidders[0]
+  end
 end

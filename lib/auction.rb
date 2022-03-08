@@ -53,6 +53,7 @@ class Auction
     @items.each do |item|
       summary_hash[item] = item.sell if item.sell
     end
+    summary_hash
   end
 
 end

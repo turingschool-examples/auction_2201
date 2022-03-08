@@ -16,4 +16,11 @@ RSpec.describe Attendee do
       expect(@attendee.budget).to eq(50)
     end
   end
+
+  context 'Iteration 4' do
+    it 'can update its budget' do
+      @attendee.update_budget(20)
+      expect(@attendee.budget).to eq(30)
+    end
+  end
 end
