@@ -18,4 +18,14 @@ class Auction
     @items.map { |item| item.name }
   end
 
+  def unpopular_items
+    unpopular_array = []
+    @items.each do |item|
+      if !item.bids.empty? == false
+        unpopular_array << item
+      end
+    end
+    unpopular_array
+  end
+
 end
