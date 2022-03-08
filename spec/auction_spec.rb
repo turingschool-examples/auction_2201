@@ -39,15 +39,24 @@ require 'pry'
         @attendee2 = Attendee.new({name: "Bob", budget: "$75"})
         @attendee3 = Attendee.new({name: "Mike", budget: "$100"})
         @auction = Auction.new
-        @auction.add_item(item1)
-        @auction.add_item(item2)
-        @auction.add_item(item3)
-        @auction.add_item(item4)
-        @auction.add_item(item5)
+        @auction.add_item(@item1)
+        @auction.add_item(@item2)
+        @auction.add_item(@item3)
+        @auction.add_item(@item4)
+        @auction.add_item(@item5)
       end
 
       it "has bids" do
         expect(@item1.bids).to eq({})
+      end
+
+      it "gets bids" do
+        @item1.add_bid(@attendee2, 20)
+        @item1.add_bid(@attendee1, 22)
+        expect(@item1.bids).to eq({
+          @attendee2 => 20,
+          @attendee1 => 22
+          })
       end
 
 
