@@ -31,7 +31,43 @@ RSpec.describe Auction do
     @item4.add_bid(@attendee3, 50)
     @item3.add_bid(@attendee2, 15)
 
-    expected = ["megan", "Bob", "Mike"]
+    expected = ["Megan", "Bob", "Mike"]
     expect(@auction.bidders).to eq(expected)
+  end
+
+  it 'Item: #close_bidding' do
+
+    @item1.add_bid(@attendee1, 22)
+    @item1.add_bid(@attendee2, 20)
+    @item4.add_bid(@attendee3, 50)
+    @item3.add_bid(@attendee2, 15)
+    
+    expected = {
+                  @attendee1 => 22,
+                  @attendee2 => 20
+               }
+    expect(@item1.bids).to eq (expected)
+
+    @item1.close_bidding
+    @item1.add_bid(@attendee3, 70)
+
+    expect(@item1.bids).to eq (expected)
+  end
+
+  xit '#bidder_info' do
+  expected =  { @attendee1 => {
+         :budget => 50,
+         :items => [@item1]
+       },
+       @attendee2 => {
+         :budget => 75,
+         :items => [@item1,@item2]
+       },
+       @attendee3 =>
+       {
+         :budget => 100,
+         :items => [@item3]
+       }
+     }
   end
 end
