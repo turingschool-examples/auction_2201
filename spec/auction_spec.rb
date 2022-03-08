@@ -15,7 +15,7 @@ RSpec.describe Auction do
     @attendee3 = Attendee.new({name: 'Mike', budget: '$100'})
     @auction = Auction.new
   end
-  describe '#auction' do
+  describe '#iteration_1 - auction' do
     it 'exists' do
 
       expect(@auction).to be_a(Auction)
@@ -41,7 +41,7 @@ RSpec.describe Auction do
     end
   end
 
-  describe "#bidding" do
+  describe "#iteration_2" do
     before(:each) do
       @auction.add_item(@item1)
       @auction.add_item(@item2)
@@ -97,6 +97,25 @@ RSpec.describe Auction do
       @item3.add_bid(@attendee2, 15)
 
       expect(@auction.potential_revenue).to eq(87)
+    end
+  end
+
+  describe '#iteration_3' do
+    before(:each) do
+      @auction.add_item(@item1)
+      @auction.add_item(@item2)
+      @auction.add_item(@item3)
+      @auction.add_item(@item4)
+      @auction.add_item(@item5)
+      @item1.add_bid(@attendee1, 22)
+      @item1.add_bid(@attendee2, 20)
+      @item4.add_bid(@attendee3, 50)
+      @item3.add_bid(@attendee2, 15)
+    end
+
+    it 'can list all the bidders in an auction' do
+
+      expect(@auction.bidders).to eq(["Megan", "Bob", "Mike"])
     end
   end
 end

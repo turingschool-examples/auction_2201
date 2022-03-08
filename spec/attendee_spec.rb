@@ -8,7 +8,7 @@ RSpec.describe Attendee do
     @item2 = Item.new('Bamboo Picture Frame')
     @attendee = Attendee.new({name: 'Megan', budget: '$50'})
   end
-  describe '#attendee' do
+  describe '#iteration_1 - attendee' do
     it 'exists' do
 
       expect(@attendee).to be_a(Attendee)

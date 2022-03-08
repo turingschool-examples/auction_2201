@@ -10,7 +10,7 @@ RSpec.describe Item do
     @attendee = Attendee.new({name: 'Megan', budget: '$50'})
     @auction = Auction.new
   end
-  describe '#item' do
+  describe '#iteration_1 - item' do
     it 'exists' do
 
       expect(@item1).to be_a(Item)
