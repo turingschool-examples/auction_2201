@@ -33,4 +33,11 @@ class Auction
       potential_revenue_array.sum
   end
 
+  def bidders
+    bidder_names = []
+    @item.bids.each do |attendee, bid|
+      bidder_names << @item.bids[:attendee.name]
+    end
+  end
+
 end

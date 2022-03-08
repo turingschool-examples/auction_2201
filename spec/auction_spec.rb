@@ -105,6 +105,10 @@ RSpec.describe Auction do
       @item4.add_bid(@attendee3, 50)
       @item3.add_bid(@attendee2, 15)
     end
+
+    it "displays bidder names" do
+      expect(@auction.bidders).to eq(["Megan", "Bob", "Mike"])
+    end
   end
 
 end
