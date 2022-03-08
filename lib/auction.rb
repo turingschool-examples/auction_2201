@@ -23,4 +23,10 @@ class Auction
   def potential_revenue
     top_bids.sum
   end
+
+  def bidders
+    @items.map do |item|
+      item.bids.map {|attendee, bid| attendee.name}
+    end.flatten
+  end
 end

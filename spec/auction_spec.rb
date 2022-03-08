@@ -66,7 +66,7 @@ describe Auction do
     end
 
     it 'Auction #bidders' do
-      expect(@auction.bidders).to eq(["Megan", "Bob", "Mike"])
+      expect(@auction.bidders).to eq(["Bob", "Megan", "Mike"])
     end
   end
 end
