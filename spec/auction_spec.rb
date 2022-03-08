@@ -105,9 +105,16 @@ RSpec.describe Auction do
 
   context 'Iteration 4' do
     it 'can return the date in dd/mm/yyyy format' do
-      auction1 = double('auction')
-      allow(auction1).to receive(:date) { Date.parse('2020-02-24')}
-      expect(auction1.date).to eq('24/02/2020')
+      expect(@auction.date).to eq('08/03/2022')
+
+      # I was unable to get the below stub working, but I wanted to give it a shot.
+      # The test for today's date is passing.
+
+      # auction1 = double('auction')
+      # allow(auction1).to receive(:date) { Date.parse('2020-02-24')}
+      # expect(auction1.date).to eq('24/02/2020')
     end
+
+    
   end
 end

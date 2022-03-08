@@ -1,4 +1,5 @@
 require './lib/item'
+require 'date'
 require 'pry'
 
 class Auction
@@ -7,6 +8,11 @@ class Auction
 
   def initialize
     @items = []
+    @date = Date.today
+  end
+
+  def date
+    @date.strftime('%d/%m/%Y')
   end
 
   def add_item(item)
