@@ -1,11 +1,18 @@
 require './lib/auction'
 require './lib/item'
+require './lib/attendee'
 
 RSpec.describe Auction do
   before (:each) do
     @auction = Auction.new
     @item1 = Item.new('Chalkware Piggy Bank')
     @item2 = Item.new('Bamboo Picture Frame')
+    @item3 = Item.new('Homemade Chocolate Chip Cookies')
+    @item4 = Item.new('2 Days Dogsitting')
+    @item5 = Item.new('Forever Stamps')
+    @attendee1 = Attendee.new({name: 'Megan', budget: '$50'})
+    @attendee2 = Attendee.new({name: 'Bob', budget: '$75'})
+    @attendee3 = Attendee.new({name: 'Mike', budget: '$100'})
   end
 
   it 'initializes with no items' do
