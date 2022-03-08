@@ -16,4 +16,8 @@ class Auction
     @items.map {|item| item.name}
   end
 
+  def unpopular_items
+    @items.map {|item| item if item.bids == {}}.compact
+  end
+
 end
