@@ -39,9 +39,21 @@ RSpec.describe Item do
   end
 
   context 'Iteration 3' do
-    it 'can close bidding' do
-      @item1.add_bid(@attendee1, 22)
+    it 'is initialized open for bidding' do
+      expect(@item1.closed?).to eq(false)
       @item1.add_bid(@attendee2, 20)
+      @item1.add_bid(@attendee1, 22)
+      @item1.add_bid(@attendee3, 50)
+      expect(@item1.bids).to eq({
+        @attendee2 => 20,
+        @attendee1 => 22,
+        @attendee3 => 50
+        })
+    end
+      
+    it 'can close bidding' do
+      @item1.add_bid(@attendee2, 20)
+      @item1.add_bid(@attendee1, 22)
       @item1.close_bidding
       @item1.add_bid(@attendee3, 50)
       expect(@item1.bids).to eq({@attendee2 => 20, @attendee1 => 22})
