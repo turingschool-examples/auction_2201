@@ -181,4 +181,9 @@ describe Auction do
       })
       # binding.pry
   end
+
+  it "initializes with a new, current date" do
+    auction2 = Auction.new
+    expect(auction2.date).to eq(Date.today.to_s.gsub("-", "/"))
+  end
 end
