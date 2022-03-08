@@ -23,4 +23,14 @@ class Auction
       end
     end.compact
   end
+
+  def potential_revenue
+    array_sum = []
+    @items.each do |item|
+      array_sum << item.current_high_bid
+    end
+    array_sum.compact.sum
+  end
+
+
 end

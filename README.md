@@ -135,7 +135,8 @@ pry(main)> auction.unpopular_items
 
 pry(main)> auction.potential_revenue
 #=> 87
-
+is the total possible sale price of the items (the items highest bid)
+- need to add item1, 3, and 4
 ```
 
 ## Iteration 3 - More bidding stuff!

@@ -12,8 +12,9 @@ class Item
   end
 
   def current_high_bid
-    bid_arrqy = @bids.map {|attendee, item| item}.sort.reverse
-    bid_arrqy[0]
+    bid_array = @bids.map {|attendee, item| item}.sort.reverse
+    bid_array[0]
+    # require 'pry'; binding.pry
   end
 
 end
