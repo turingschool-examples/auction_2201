@@ -19,7 +19,9 @@ class Item
     @bids.each do |attendee, bid|
       high_bid << bid
     end
-    high_bid.max 
+    high_bid.max
   end
+
+  
 
 end

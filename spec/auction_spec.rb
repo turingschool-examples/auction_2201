@@ -70,7 +70,15 @@ RSpec.describe Auction do
       expect(@item1.current_high_bid).to eq(22)
     end
 
-    it "#unpopular_items" do
+    it "can return total bids on an item" do
+      @item1.add_bid(@attendee2, 20)
+      @item1.add_bid(@attendee1, 22)
+      @item4.add_bid(@attendee3, 50)
+      expect(@auction.total_bids(@item1)).to eq(42)
+      expect(@auction.total_bids(@item4)).to eq(50)
+    end
+
+    xit "#unpopular_items" do
       @item1.add_bid(@attendee2, 20)
       @item1.add_bid(@attendee1, 22)
       @item4.add_bid(@attendee3, 50)

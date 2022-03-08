@@ -12,7 +12,13 @@ class Auction
   end
 
   def item_names
-    @items.map do |item| item.name 
+    @items.map do |item| item.name
     end
   end
+
+  def total_bids(item)
+      total_bids = item.bids.values.sum.to_i
+  end
+
+
 end
