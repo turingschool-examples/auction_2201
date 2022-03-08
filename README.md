@@ -204,10 +204,11 @@ pry(main)> item3.add_bid(attendee2, 15)
 pry(main)> auction.bidders
 #=> ["Megan", "Bob", "Mike"]
 
-pry(main)> item1.bids
+pry(main)> item1.bids x
 #=> {#<Attendee:0x00007ff177a45108 ...> => 22, #<Attendee:0x00007ff17816a4b0 ...> => 20}
 
 pry(main)> item1.close_bidding
+`close_bidding` should update the item so that it will not accept additional bids.
 
 pry(main)> item1.add_bid(@attendee3, 70)
 
