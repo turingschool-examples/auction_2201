@@ -4,8 +4,12 @@ require './lib/attendee'
 
 class Auction
   attr_reader :items
-  
+
   def initialize(items = [])
     @items = items
+  end
+
+  def add_item(item)
+    @items << item
   end
 end
