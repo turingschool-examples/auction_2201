@@ -141,7 +141,7 @@ pry(main)> auction.potential_revenue
 ## Iteration 3 - More bidding stuff!
 
 Use TDD to update your classes to respond to the following interaction pattern.  Some notes:
-- `bidders` should list the names of each attendee that bid on the item. 
+- `bidders` should list the names of each attendee that has bid on an item at the auction. 
 - `close_bidding` should update the item so that it will not accept additional bids.
 - `bidder_info` should return a hash with keys that are attendees, and values that are a hash with that attendee's budget and an array of items that attendee has bid on.
 
