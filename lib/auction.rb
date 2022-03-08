@@ -27,13 +27,14 @@ class Auction
 
   def bidders
     @items.flat_map do |item|
-      item.bids.map {|attendee, bid| attendee}
+      item.bids.map {|attendee, bid| attendee.name}
     end.uniq
   end
 
   def bidder_info
     bidder_info_hash = {}
-    bidders.each do |bidder|
+    bidder_objects = @items.flat_map {|item| item.bids.map {|attendee, bid| attendee}}.uniq
+    bidder_objects.each do |bidder|
       bidder_info_hash[bidder] ||= {budget: 0, items: []}
       bidder_info_hash[bidder][:budget] = bidder.budget
       bidder_info_hash[bidder][:items] = @items.find_all {|item| item.bids.keys.include?(bidder)}
