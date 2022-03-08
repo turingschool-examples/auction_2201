@@ -44,8 +44,21 @@ RSpec.describe Auction do
       @attendee3 = Attendee.new({name: 'Mike', budget: '$100'})
       @auction = Auction.new
     end
+
     it 'begins with empty array of items' do
       expect(@auction.items).to eq([])
+    end
+
+    it 'Item #add_bid' do
+      @auction.add_item(@item1)
+      @auction.add_item(@item2)
+      @auction.add_item(@item3)
+      @auction.add_item(@item4)
+      @auction.add_item(@item5)
+      expect(@item1.bids).to eq({})
+      @item1.add_bid(@attendee2, 20)
+      @item1.add_bid(@attendee1, 22)
+      expect(@item1.bids).to eq({attendee2: 20, attendee1: 22})
     end
   end
 end
