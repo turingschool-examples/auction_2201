@@ -62,5 +62,4 @@ RSpec.describe 'Item' do
       expect(item1.bids).to eq({ attendee1 => 22, attendee2 => 20 })
     end
   end
-
 end

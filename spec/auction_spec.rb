@@ -1,5 +1,6 @@
 require './lib/auction'
 require './lib/item'
+require 'date'
 
 RSpec.describe 'Auction' do
   describe 'Iteration 1' do
@@ -89,5 +90,36 @@ RSpec.describe 'Auction' do
       expect(auction.bidders).to eq ['Megan', 'Bob', 'Mike']
     end
   end
+
+  describe 'Iteration 4' do
+    auction = Auction.new
+    item1 = Item.new('Chalkware Piggy Bank')
+    item2 = Item.new('Bamboo Picture Frame')
+    item3 = Item.new('Homemade Chocolate Chip Cookie')
+    item4 = Item.new('2 Days Dogsitting')
+    item5 = Item.new('Forever Stamps')
+    attendee1 = Attendee.new({name: 'Megan', budget: '$50'})
+    attendee2 = Attendee.new({name: 'Bob', budget: '$75'})
+    attendee3 = Attendee.new({name: 'Mike', budget: '$100'})
+    auction.add_item(item1)
+    auction.add_item(item2)
+    auction.add_item(item3)
+    auction.add_item(item4)
+    auction.add_item(item5)
+    item1.add_bid(attendee1, 22)
+    item1.add_bid(attendee2, 20)
+    item4.add_bid(attendee2, 30)
+    item4.add_bid(attendee3, 50)
+    item3.add_bid(attendee2, 15)
+    item5.add_bid(attendee1, 35)
+
+
+    it 'Returns the auction date' do
+      allow(Date).to receive(:today).and_return Date.new(2020, 2, 24)
+      auction = Auction.new
+      expect(auction.date).to eq "24/02/2020"
+    end
+  end
+
 
 end
