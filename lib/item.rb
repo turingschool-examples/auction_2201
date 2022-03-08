@@ -18,5 +18,6 @@ attr_reader :name, :bids
   def close_bidding
     @open = false
   end
+
   
 end 
