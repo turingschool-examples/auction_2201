@@ -22,5 +22,4 @@ RSpec.describe Auction do
     @auction.add_item(item2)
     expect(@auction.items).to eq([item1, item2])
   end
-
 end
