@@ -122,7 +122,12 @@ RSpec.describe Auction do
       expect(@item1.bids).to eq({@attendee1 => 22, @attendee2 => 20})
       @item1.close_bidding
       @item1.add_bid(@attendee3, 70)
-      expecct(@item1.bids).to eq({@attendee1 => 22, @attendee2 => 20})
+      expect(@item1.bids).to eq({@attendee1 => 22, @attendee2 => 20})
+    end
+
+    xit 'can read the bidder info of an auction' do
+
+      expect(@auction.bidder_info).to eq({})
     end
   end
 end
