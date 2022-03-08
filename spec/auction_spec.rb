@@ -157,16 +157,27 @@ describe Auction do
     @auction.add_item(@item3)
     @auction.add_item(@item4)
     @auction.add_item(@item5)
-
-    @item1.add_bid(@attendee1, 22)
-    @item1.add_bid(@attendee2, 20)
-    @item4.add_bid(@attendee3, 50)
-    @item3.add_bid(@attendee2, 15)
     # @auction.stub(:date).and_return('24/02/2020')
     allow(@auction).to receive(:date).and_return('24/02/2020')
   end
 
   it "has a date" do
     expect(@auction.date).to eq('24/02/2020')
+  end
+
+  it "can close the auction" do
+    @item1.add_bid(@attendee1, 22)
+    @item1.add_bid(@attendee2, 20)
+    @item4.add_bid(@attendee2, 30)
+    @item4.add_bid(@attendee3, 50)
+    @item3.add_bid(@attendee2, 15)
+    @item5.add_bid(@attendee1, 35)
+    expect(@auction.close_auction).to eq({
+      @item1 => @attendee2,
+      @item2 => "Not Sold",
+      @item3 => @attendee2,
+      @item4 => @attendee2,
+      @item5 => @attendee1
+      })
   end
 end
