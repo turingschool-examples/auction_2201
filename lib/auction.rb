@@ -1,3 +1,4 @@
+require 'pry'
 class Auction
   attr_reader :items
 
@@ -36,4 +37,27 @@ class Auction
     end
     bidders.uniq
   end
+
+  def bidder_info
+    bidder_hash = {}
+    @items.each do |item|
+      if item.bids.empty? == false
+        item.bids.each do |attendee, bid|
+          if bidder_hash.key?(attendee) == false
+            bidder_hash[attendee] = {budget: attendee.budget, items: []}
+          end
+        end
+      end
+    end
+    bidder_hash.each do |attendee, info|
+      @items.each do |item|
+        if item.bids.include?(attendee)
+          info[:items] << item
+        end
+      end
+    end
+    # binding.pry
+    return bidder_hash
+  end
+
 end
