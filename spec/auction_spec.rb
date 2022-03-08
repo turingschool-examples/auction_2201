@@ -1,5 +1,6 @@
 require 'date'
 require './lib/auction'
+require 'timecop'
 
 RSpec.describe Auction do
   context "Iteration 1" do
@@ -128,8 +129,8 @@ RSpec.describe Auction do
   end
 
   context "Iteration 4" do
-    let(:today) { "24/02/2020" }
     before(:each) do
+      Timecop.freeze(Date.today - 743)
       @item1 = Item.new('Chalkware Piggy Bank')
       @item2 = Item.new('Bamboo Picture Frame')
       @item3 = Item.new('Homemade Chocolate Chip Cookies')
@@ -152,7 +153,7 @@ RSpec.describe Auction do
       @item4.add_bid(@attendee3, 50)
       @item3.add_bid(@attendee2, 15)
     end
-    
+
     it "has a date" do
       expect(@auction.date).to eq("24/02/2020")
     end
