@@ -11,6 +11,6 @@ describe Item do
   end
 
   it 'has a name' do
-    expect@item.name).to eq("Chalkware Piggy Bank")
+    expect(@item.name).to eq("Chalkware Piggy Bank")
   end
 end
