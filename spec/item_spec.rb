@@ -18,4 +18,9 @@ RSpec.describe Item do
       expect(@item1).to be_an_instance_of(Item)
     end
 
+    it "has a name" do
+      expect(@item1.name).to eq("Chalkware Piggy Bank")
+    end
+
   end
+end
