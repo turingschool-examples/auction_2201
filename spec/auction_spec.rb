@@ -34,11 +34,49 @@ RSpec.describe Auction do
     @item1.add_bid(@attendee2, 20)
     @item1.add_bid(@attendee1, 22)
     expect(@item1.bids).to eq({@attendee2 => 20, @attendee1 => 22})
+  end
+
+  it "can find the current high bid" do
+    @auction.add_item(@item1)
+    @auction.add_item(@item2)
+    @auction.add_item(@item3)
+    @auction.add_item(@item4)
+    @auction.add_item(@item5)
+
+    expect(@item1.bids).to eq({})
+    @item1.add_bid(@attendee2, 20)
+    @item1.add_bid(@attendee1, 22)
     expect(@item1.current_high_bid).to eq(22)
+  end
+
+  it "can find unpopular_items" do
+    @auction.add_item(@item1)
+    @auction.add_item(@item2)
+    @auction.add_item(@item3)
+    @auction.add_item(@item4)
+    @auction.add_item(@item5)
+
+    expect(@item1.bids).to eq({})
+    @item1.add_bid(@attendee2, 20)
+    @item1.add_bid(@attendee1, 22)
     @item4.add_bid(@attendee3, 50)
     expect(@auction.unpopular_items).to eq([@item2, @item3, @item5])
     @item3.add_bid(@attendee2, 15)
     expect(@auction.unpopular_items).to eq([@item2, @item5])
+  end
+
+  it "can find potential_revenue" do
+    @auction.add_item(@item1)
+    @auction.add_item(@item2)
+    @auction.add_item(@item3)
+    @auction.add_item(@item4)
+    @auction.add_item(@item5)
+
+    expect(@item1.bids).to eq({})
+    @item1.add_bid(@attendee2, 20)
+    @item1.add_bid(@attendee1, 22)
+    @item4.add_bid(@attendee3, 50)
+    @item3.add_bid(@attendee2, 15)
     expect(@auction.potential_revenue).to eq(87)
   end
 end
