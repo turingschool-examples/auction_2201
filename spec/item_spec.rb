@@ -16,5 +16,4 @@ RSpec.describe Item do
     expect(@item1.name).to eq('Chalkware Piggy Bank')
     expect(@item1.bids).to eq({})
   end
-
 end
