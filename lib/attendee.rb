@@ -1,6 +1,7 @@
 class Attendee
 
-attr_reader :name, :budget
+attr_reader :name
+attr_accessor :budget
 
 def initialize(info)
   @name = info[:name]

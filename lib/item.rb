@@ -1,5 +1,6 @@
 class Item
-  attr_reader :name, :bids
+  attr_reader :name
+  attr_accessor :bids
   def initialize(name)
     @name = name
     @bids = {}
@@ -13,7 +14,6 @@ class Item
   def current_high_bid
     @bids.values.max
   end
-
 
   def close_bidding
     @close_bidding = true

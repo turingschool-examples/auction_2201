@@ -33,7 +33,6 @@ attr_reader :items
   def bidder_info
     bidder_info = {}
     items_with_bids = @items.find_all{|item| item.bids != {}}
-    # require "pry"; binding.pry
     items_with_bids.each { |item|
       item.bids.keys.each { |attendee, bid|
         bidder_info[attendee] = {budget: attendee.budget, items: []} if !bidder_info.key?(attendee)
@@ -47,5 +46,28 @@ attr_reader :items
      [Date.today.strftime('%d/%m/%y')[0..-3], Date.today.year.to_s].join
   end
 
-  
-end
+
+  def close_auction
+    items_sold = {}
+    bidder_info.each { |attendee, info|
+        bidding_items = info[:items]
+        until bidding_items ==[] do
+            most_expensive_item = bidding_items.max_by {|item| item.current_high_bid}
+            if most_expensive_item.bids[attendee] == most_expensive_item.current_high_bid && attendee.budget >= most_expensive_item.current_high_bid
+              items_sold[most_expensive_item] = attendee
+              attendee.budget -= most_expensive_item.current_high_bid
+              break
+            else
+              bidding_items.delete(most_expensive_item)
+              # require "pry"; binding.pry
+              most_expensive_item.bids.delete(attendee)
+            end
+            require "pry"; binding.pry
+        end
+                    }
+    @items.each {|item| items_sold[item] = "Not sold" if !items_sold.keys.include?(item)}
+    items_sold
+    # require "pry"; binding.pry
+    end
+
+  end

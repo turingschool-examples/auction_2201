@@ -21,8 +21,10 @@ context 'iteration_4' do
     @auction.add_item(@item5)
     @item1.add_bid(@attendee1, 22)
     @item1.add_bid(@attendee2, 20)
+    @item4.add_bid(@attendee2, 30)
     @item4.add_bid(@attendee3, 50)
     @item3.add_bid(@attendee2, 15)
+    @item5.add_bid(@attendee1, 35)
   end
 
   describe Auction do
@@ -31,6 +33,15 @@ context 'iteration_4' do
 
     end
 
+    it 'sells item to bidders when close_auction' do
+      expect(@auction.close_auction).to eq ({
+                                            @item5 => @attendee1,
+                                            @item3 => @attendee2,
+                                            @item4 => @attendee3,
+                                            @item2 => 'Not sold',
+                                            @item1 => @attendee2
+                                            })
+    end
   end
 
 
