@@ -103,6 +103,10 @@ describe Auction do
     it 'tell you who the bidders are' do
       expect(@auction.bidders).to eq(["Megan", "Bob", "Mike"])
     end
+
+    it 'can close bidding' do
+      expect(@item1.bids).to eq({@attendee1 => 22, @attendee2 => 20})
+    end
   end
 
 
