@@ -102,4 +102,12 @@ RSpec.describe Auction do
         })
     end
   end
+
+  context 'Iteration 4' do
+    it 'can return the date in dd/mm/yyyy format' do
+      auction1 = double('auction')
+      allow(auction1).to receive(:date) { Date.parse('2020-02-24')}
+      expect(auction1.date).to eq('24/02/2020')
+    end
+  end
 end
