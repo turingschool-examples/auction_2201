@@ -92,4 +92,32 @@ describe Auction do
       expect(@auction.bidder_info).to eq(expected)
     end
   end
+
+  context 'closing the auction' do
+    before do
+      @auction.add_item(@item1)
+      @auction.add_item(@item2)
+      @auction.add_item(@item3)
+      @auction.add_item(@item4)
+      @auction.add_item(@item5)
+      @item1.add_bid(@attendee1, 22)
+      @item1.add_bid(@attendee2, 20)
+      @item4.add_bid(@attendee2, 30)
+      @item4.add_bid(@attendee3, 50)
+      @item3.add_bid(@attendee2, 15)
+      @item5.add_bid(@attendee1, 35)
+    end
+
+    it 'Auction #close_auction' do
+      expected = {
+        @item1 => @attendee2,
+        @item2 => 'Not Sold',
+        @item3 => @attendee2,
+        @item4 => @attendee3,
+        @item5 => @attendee1
+      }
+
+      expect(@auction.close_bidding).to eq(expected)
+    end
+  end
 end
