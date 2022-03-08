@@ -16,4 +16,5 @@ RSpec.describe Item do
   it 'starts with no bids' do
     expect(@item1.bids).to eq({})
   end
+  
 end
