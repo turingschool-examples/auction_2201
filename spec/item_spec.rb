@@ -33,7 +33,6 @@ RSpec.describe 'Item' do
     it 'finds current highest bid in bids' do
       expect(item1.current_highest_bid).to eq 22
     end
-
   end
 
 end
