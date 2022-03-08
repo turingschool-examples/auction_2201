@@ -68,4 +68,11 @@ RSpec.describe Auction do
     expect(item1.bids).to eq({attendee2 => 20, attendee1 => 22})
   end
 
+  it 'displays all bidders info' do
+    expect(auction.bidder_info).to eq(
+      {attendee1 => { :budget => 50, :items => [item1] },
+       attendee2 => { :budget => 75, :items => [item1, item3] },
+       attendee3 => { :budget => 100, :items => [item4] }})
+  end
+
 end
