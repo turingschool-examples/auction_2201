@@ -29,4 +29,16 @@ class Auction
       item.bids.map {|attendee, bid| attendee.name}
     end.flatten
   end
+
+  def bidder_info
+    info = Hash.new
+    @items.each do |item|
+      item.bids.each {|attendee, bid| info[attendee] = {} }
+    end
+    info.each do |attendee, current_bids|
+      current_bids[:budget] = attendee.budget
+      current_bids[:items] = @items.find_all {|item| item.bids.key?(attendee)}
+    end
+    info
+  end
 end
