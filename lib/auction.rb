@@ -19,4 +19,18 @@ class Auction
     item_names_array
   end
 
+  def unpopular_items
+    unpopular = items.find_all do |item|
+      item.bids == {}
+    end
+  end
+
+  def potential_revenue
+      potential_revenue_array = []
+      @items.each do |item|
+        potential_revenue_array << item.current_high_bid
+      end
+      potential_revenue_array.sum
+  end
+
 end
