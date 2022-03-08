@@ -121,10 +121,13 @@ RSpec.describe Auction do
       expect(@auction.bidders).to eq(["Megan", "Bob", "Mike"])
     end
 
-    xit "#close_bidding" do
+    it "#close_bidding" do
       @item1.close_bidding
       @item1.add_bid(@attendee3, 70)
-      expect(@item1.bids).to eq()
+      expect(@item1.bids).to eq(({
+        @attendee2 => 20,
+        @attendee1 => 22,
+        }))
 
     end
 

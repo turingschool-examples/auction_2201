@@ -23,7 +23,10 @@ class Item
   end
 
   def close_bidding
-
+    # require 'pry'; binding.pry
+    bids.each do |bid|
+    require 'pry'; binding.pry
+    @bids.reject(bids.last)
   end
 
 
