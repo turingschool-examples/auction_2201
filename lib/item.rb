@@ -11,6 +11,7 @@ class Item
   end
 
   def current_high_bid
+    return 0 if @bids.values.sort.last.nil?
     @bids.values.sort.last
   end
 

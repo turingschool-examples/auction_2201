@@ -19,4 +19,10 @@ class Auction
     @items.select {|item| item.bids == {}}
   end
 
+  def potential_revenue
+    revenue = 0
+    @items.each {|item| revenue += item.current_high_bid}
+    revenue
+  end
+
 end
