@@ -2,7 +2,6 @@ require "./lib/item"
 
 RSpec.describe Item do
   item1 = Item.new("Chalkware Piggy Bank")
-  item2 = Item.new("Bamboo Picture Frame")
 
   it "exists/ has readable attributes" do
     expect(item1).to be_an_instance_of(Item)
