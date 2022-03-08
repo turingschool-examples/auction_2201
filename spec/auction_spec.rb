@@ -11,4 +11,14 @@ RSpec.describe Auction do
     expect(auction).to be_an_instance_of(Auction)
     expect(auction.items).to eq([])
   end
+
+  it "adds items" do
+    auction.add_item(item1)
+    auction.add_item(item2)
+    expect(auction.items).to eq([item1, item2])
+  end
+
+  it "reads item names" do
+    expect(auction.item_names).to eq(["Chalkware Piggy Bank", "Bamboo Picture Frame"])
+  end
 end
