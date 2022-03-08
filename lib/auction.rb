@@ -23,7 +23,10 @@ class Auction
     items.find_all { |item| item.bids != {} }
   end
 
-  def potential_revenue
+  def top_bids
     popular_items.map { |item| item.current_highest_bid }
+  end
+  
+  def potential_revenue
   end
 end
