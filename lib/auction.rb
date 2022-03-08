@@ -15,4 +15,12 @@ class Auction
       item.name
     end
   end
+
+  def unpopular_items
+    @items.map do |item|
+      if item.bids.empty?
+        item
+      end
+    end.compact
+  end
 end
