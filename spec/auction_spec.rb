@@ -12,4 +12,11 @@ RSpec.describe do
     auction = Auction.new
     expect(auction.items).to eq([])
   end
+
+  it "can add items" do
+    auction = Auction.new
+    item1 = Item.new('Chalkware Piggy Bank')
+    expect(auction.add_item(item1)).to eq(["Chalkware Piggy Bank"])
+  end
+
 end
