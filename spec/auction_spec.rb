@@ -15,4 +15,8 @@ RSpec.describe Auction do
     expect(@auction).to be_an_instance_of(Auction)
   end
 
+  it 'holds empty array of items by default' do
+    expect(@auction.items).to eq([])
+  end
+
 end
