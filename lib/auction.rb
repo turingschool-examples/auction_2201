@@ -24,4 +24,12 @@ class Auction
     all_bids = @items.map { |item| item.bids }.flat_map { |hash| hash.keys }
     all_bids.uniq { |attendee| attendee.name }.map { |attendee| attendee.name }
   end
+
+  # def bidder_info
+  #   info = {}
+  #   bidders.each {|bidder| info[bidder] = 0}
+  #   info = info.transform_values {|k,v| v = {} }
+  #   info = info.transform_keys {|k,v| k = }
+  #   binding.pry
+  # end
 end
