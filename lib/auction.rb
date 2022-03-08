@@ -33,4 +33,8 @@ class Auction
     items.map { |item| item.bids.keys }.flatten.uniq
   end
 
+  def bidders
+    unique_bidders.map { |bidder| bidder.name }
+  end
+
 end
