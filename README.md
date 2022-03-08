@@ -274,7 +274,7 @@ pry(main)> attendee1 = Attendee.new({name: 'Megan', budget: '$50'})
 pry(main)> attendee2 = Attendee.new({name: 'Bob', budget: '$75'})
 #=> #<Attendee:0x00007f9ea50c4748 ...>
 
- pry(main)> attendee3 = Attendee.new({name: 'Mike', budget: '$100')
+ pry(main)> attendee3 = Attendee.new({name: 'Mike', budget: '$100'})
 #=> #<Attendee:0x00007f9ea50b5b58 ...>
 
 pry(main)> auction = Auction.new
