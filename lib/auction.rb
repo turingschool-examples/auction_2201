@@ -36,4 +36,18 @@ class Auction
     all_highest_bids.compact.sum
   end
 
+  def bidders
+    the_bidders = []
+    bidder_names = []
+    @items.each do |item|
+      item.bids.each do |attendee, amount|
+        the_bidders << attendee
+      end
+    end
+    the_bidders.uniq.each do |bidder|
+      bidder_names << bidder.name
+    end
+    bidder_names
+  end
+
 end
