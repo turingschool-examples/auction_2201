@@ -19,13 +19,11 @@ class Auction
   end
 
   def unpopular_items
-    unpopular_array = []
-    @items.each do |item|
+    @items.map do |item|
       if !item.bids.empty? == false
-        unpopular_array << item
+        item
       end
-    end
-    unpopular_array
+    end.compact
   end
 
   def potential_revenue
