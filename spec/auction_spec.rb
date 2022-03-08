@@ -15,5 +15,10 @@ RSpec.describe Auction do
 
       expect(@auction).to be_a(Auction)
     end
+
+    it 'can hold items' do
+
+      expect(@auction.items).to eq([])
+    end
   end
 end
