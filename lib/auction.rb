@@ -19,4 +19,10 @@ class Auction
     item_names_array
   end
 
+  def unpopular_items
+    unpopular = items.find_all do |item|
+      item.bids == {}
+    end
+  end
+
 end
