@@ -28,4 +28,11 @@ class Auction
 #    end
 #    unpopular
   end
+  def potential_revenue
+      revenue = items.map do |item|
+        item.current_high_bid
+      end
+      revenue.sum
+  end
+
 end
