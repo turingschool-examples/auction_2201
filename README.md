@@ -125,7 +125,7 @@ pry(main)> item1.current_high_bid
 
 pry(main)> item4.add_bid(attendee3, 50)
 
-pry(main)> auction.unpopular_items
+pry(main)> auction.unpopular_items - no bids
 #=> [#<Item:0x00007fdc07925280 ...>, #<Item:0x00007fdc071ab040 ...>, #<Item:0x00007fdc071695f0 ...>]
 
 pry(main)> item3.add_bid(attendee2, 15)
