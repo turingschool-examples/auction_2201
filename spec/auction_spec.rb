@@ -1,4 +1,6 @@
 require './lib/auction'
+require './lib/attendee'
+require './lib/item'
 
 RSpec.describe Auction do
 
@@ -115,7 +117,7 @@ RSpec.describe Auction do
     end
 
     it "has helper method attendees to return all attendee objects who have bid on an item" do
-      expect(@auction.attendees).to eq([@attendee1, @attendee2, @attendee3])
+      expect(@auction.attendees).to eq([@attendee2, @attendee1, @attendee3])
     end
 
   end
