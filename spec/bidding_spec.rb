@@ -46,5 +46,19 @@ RSpec.describe 'Bidding!' do
       # binding.pry
       expect(@auction.unpopular_items).to eq([@item2, @item3, @item5])
     end
+
+    it 'Auction #unpopular_items knows the least bidded item' do
+      @item4.add_bid(@attendee3, 50)
+      @item3.add_bid(@attendee2, 15)
+      # binding.pry
+      expect(@auction.unpopular_items).to eq([@item2, @item5])
+    end
+
+    it 'Auction #potential_revenue' do
+      @item4.add_bid(@attendee3, 50)
+      @item3.add_bid(@attendee2, 15)
+
+      expect(@auction.potential_revenue).to eq(87)
+    end
   end
 end
