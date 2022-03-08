@@ -1,3 +1,5 @@
+require "pry"
+
 class Auction
   attr_reader :items
 
@@ -15,5 +17,9 @@ class Auction
 
   def unpopular_items
     items.find_all { |item| item.bids == {} }
+  end
+
+  def potential_revenue
+    items.map { |item| item.current_high_bid.to_i }.sum
   end
 end
