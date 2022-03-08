@@ -33,5 +33,14 @@ RSpec.describe 'Auction' do
     attendee1 = Attendee.new({name: 'Megan', budget: '$50'})
     attendee2 = Attendee.new({name: 'Bob', budget: '$75'})
     attendee3 = Attendee.new({name: 'Mike', budget: '$100'})
+    item1.add_bid(attendee2, 20)
+    item1.add_bid(attendee1, 22)
+
+    it 'finds items with no current bids' do
+      item4.add_bid(attendee3, 50)
+      expect(items.unpopular_items).to eq [item2, item3, item5]
+      item3.add_bid(attendee2, 15)
+      expect(items.unpopular_items).to eq [item2, item5]
+    end
   end
 end

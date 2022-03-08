@@ -34,12 +34,6 @@ RSpec.describe 'Item' do
       expect(item1.current_highest_bid).to eq 22
     end
 
-    it 'finds items with no current bids' do
-      item4.add_bid(attendee3, 50)
-      expect(items.unpopular_items).to eq [item2, item3, item5]
-      item3.add_bid(attendee2, 15)
-      expect(items.unpopular_items).to eq [item2, item5]
-    end
   end
 
 end
