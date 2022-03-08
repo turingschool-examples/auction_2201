@@ -38,20 +38,21 @@ class Auction
 
   def bidder_info
     info = Hash.new
-    @items.each do |item|
-      item.bids.each {|attendee, bid| info[attendee] = {} }
-    end
+    @items.each {|item| item.bids.each {|attendee, bid| info[attendee] = {} } }
     info.each do |attendee, current_bids|
       current_bids[:budget] = attendee.budget
       current_bids[:items] = @items.find_all {|item| item.bids.key?(attendee)}
     end
     info
   end
-
+  # Got really stuck on close_auction, after about 45 minutes trying to iterate over bidder_info in pry,
+  # I realized that I skipped over the Date.new stuff. Threw together a quick #date method and couldn't
+  # make any further progress on close_auction
   def close_auction
     auction_results = Hash.new
     @items.each do |item|
       auction_results[item] = 'Not Sold'
     end
+    auction_results
   end
 end
