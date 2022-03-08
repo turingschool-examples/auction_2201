@@ -1,4 +1,4 @@
-require './lib/attendee'
+require './lib/item'
 require './lib/auction'
 require './lib/attendee'
 
