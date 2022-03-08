@@ -20,6 +20,8 @@ RSpec.describe 'Bidding!' do
 
       @item1.add_bid(@attendee2, 20)
       @item1.add_bid(@attendee1, 22)
+
+      @item4.add_bid(attendee3, 50)
     end
 
     it 'Item #bids contains info of attendee and amount bid on item' do
@@ -33,6 +35,10 @@ RSpec.describe 'Bidding!' do
 
     it 'Item #current_high_bid shows the highest bid' do
       expect(@item1.current_high_bid).to eq(22)
+    end
+
+    it 'Auction #unpopular_items knows the least bidded item' do
+      expect(@auction.unpopular_items).to eq(@item4)
     end
   end
 end
