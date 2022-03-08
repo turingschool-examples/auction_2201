@@ -18,5 +18,8 @@ RSpec.describe 'Auction' do
       expect(auction.items).to eq ([item1, item2])
     end
 
+    it 'retrieves item names' do
+      expect(auction.item_names).to eq [item1.name, item2.name]
+    end
   end
 end
