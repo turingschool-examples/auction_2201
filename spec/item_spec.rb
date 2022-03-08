@@ -37,7 +37,7 @@ RSpec.describe Item do
       expect(@item1.bids).to eq({@attendee2 => 20, @attendee1 => 22})
     end
 
-    xit "returns current highest bid price" do
+    it "returns current highest bid price" do
       @item1.add_bid(@attendee2, 20)
       @item1.add_bid(@attendee1, 22)
 
