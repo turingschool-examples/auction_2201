@@ -20,6 +20,7 @@ RSpec.describe Item do
 
     it 'Item has readable attritutes/name' do
       expect(@item1.name).to eq('Chalkware Piggy Bank')
+      expect(@item1.bids).to eq({})
     end
 
     it 'attendee exists' do
@@ -50,8 +51,15 @@ RSpec.describe Item do
       @auction.add_item(@item2)
       expect(@auction.items_names).to eq(['Chalkware Piggy Bank', 'Bamboo Picture Frame' ])
     end
+  end
 
+  context 'Iteration 2' do
 
+    before(:each) do
+      @item1 = Item.new('Chalkware Piggy Bank')
+      @item2 = Item.new('Bamboo Picture Frame')
+
+    end
 
 
 
