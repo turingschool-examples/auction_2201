@@ -21,5 +21,12 @@ RSpec.describe Item do
 
       expect(@item1.name).to eq('Chalkware Piggy Bank')
     end
+
+    it 'keeps a record of bidders names' do
+      expect(@item1.bidders).to eq([])
+      @item1.add_bid(@attendee, 10)
+
+      expect(@item1.bidders).to eq(['Megan'])
+    end
   end
 end
