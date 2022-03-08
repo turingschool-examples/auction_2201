@@ -162,7 +162,8 @@ describe Auction do
     @item1.add_bid(@attendee2, 20)
     @item4.add_bid(@attendee3, 50)
     @item3.add_bid(@attendee2, 15)
-    @auction.stub(:date).and_return('24/02/2020')
+    # @auction.stub(:date).and_return('24/02/2020')
+    allow(@auction).to receive(:date).and_return('24/02/2020')
   end
 
   it "has a date" do
