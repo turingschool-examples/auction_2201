@@ -67,6 +67,9 @@ RSpec.describe Attendee do
       @item3.add_bid(@attendee2, 15)
       expect(@auction.unpopular_items).to eq([@item2, @item5])
     end
+    it "finds potential revenue" do
+      expect(@auction.potential_revenue).to eq(87)
+    end
   end
 
 
