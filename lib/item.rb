@@ -17,10 +17,17 @@ class Item
   end
 
   def current_high_bid
-    if @bids.values[0] > @bids.values[1]
-      return @bids.values[0]
-    else
-      return @bids.values[1]
+    if @bids.count > 0
+      @bids.values[0]
+      if @bids.count > 1
+        if @bids.values[1] > @bids.values[0]
+          return @bids.values[1]
+        else
+          return @bids.values[0]
+        end
+      end
+    # else
+    #   return 0
     end
   end
 
