@@ -24,4 +24,9 @@ attr_reader :items
     potential_revenue
   end
 
+  def bidders
+    bidding_attendees = @items.map {|item| item.bids.keys}.flatten.uniq
+    bidding_attendees.map{|bidder| bidder.name}
+  end
+
 end
