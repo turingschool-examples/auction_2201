@@ -16,11 +16,7 @@ class Item
   end
 
   def current_high_bid
-    bid_amounts = []
-    @bids.each do |key, value|
-      bid_amounts << value
-    end
-    bid_amounts.max
+    @bids.map { |attendee, bid|bid }.max
   end
 
   def close_bidding
