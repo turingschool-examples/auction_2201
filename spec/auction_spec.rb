@@ -99,7 +99,7 @@ RSpec.describe Auction do
       expect(@auction.bidders).to eq(["Megan", "Bob", "Mike"])
     end
 
-    xit "returns bidder information through #bidder_info" do
+    it "returns bidder information through #bidder_info" do
       expect(@auction.bidder_info).to eq({
         @attendee1 => {
           :budget => 50,
@@ -112,6 +112,10 @@ RSpec.describe Auction do
           :items => [@item4]
         }
         })
+    end
+
+    it "has helper method attendees to return all attendee objects who have bid on an item" do
+      expect(@auction.attendees).to eq([@attendee1, @attendee2, @attendee3])
     end
 
   end
