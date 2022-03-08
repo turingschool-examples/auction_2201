@@ -15,4 +15,8 @@ attr_reader :name, :bids
     @bids.map {|attendee, bid| bid}.max
   end
   
+  def close_bidding
+    @open = false
+  end
+  
 end 
