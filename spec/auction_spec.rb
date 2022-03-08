@@ -37,8 +37,8 @@ RSpec.describe Auction do
     auction.add_item(item4)
     auction.add_item(item5)
     expect(item1.bids).to eq({})
-    item1.add_bid(attendee2, 20)
     item1.add_bid(attendee1, 22)
+    item1.add_bid(attendee2, 20)
     expect(item1.bids).to eq({attendee2 => 20, attendee1 => 22})
   end
 

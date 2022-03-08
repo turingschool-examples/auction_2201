@@ -24,4 +24,9 @@ class Auction
     @items.map {|item| item.current_high_bid}.compact.sum
   end
 
+  def bidders
+    @items.map {|item|
+      item.bids.keys.map {|attendee| attendee.name}}.flatten.uniq
+  end
+
 end
