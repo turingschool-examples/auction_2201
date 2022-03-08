@@ -54,5 +54,14 @@ RSpec.describe Auction do
       expected = ({})
       expect(@item1.bids).to eq(expected)
     end
+
+    it "can add bids to the bid hash" do
+      @item1.add_bid(@attendee2, 20)
+      @item1.add_bid(@attendee1, 22)
+      expect(@item1.bids).to eq({
+        @attendee2 => 20,
+        @attendee1 => 22,
+        })
+    end
   end
 end
