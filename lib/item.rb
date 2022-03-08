@@ -9,4 +9,12 @@ class Item
   def add_bid(attendee, bid)
     @bids[attendee] = bid
   end
+
+  def current_high_bid
+    nums = []
+    @bids.map do |attendee, bid|
+      nums << bid
+    end
+    nums.sort.reverse.first
+  end
 end
