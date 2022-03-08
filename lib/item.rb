@@ -10,4 +10,6 @@ class Item
     @bids[attendee] = bid
   end
 
+  def current_high_bid
+
 end
