@@ -19,6 +19,15 @@ class Auction
   def potential_revenue
     high_bids = items.map {|item| item.current_high_bid}
     high_bids.sum
-    binding.pry
+  end
+
+  def bidders
+    bidders = []
+    items.each do |item|
+      item.bids.each do |bid|
+        bidders.push(bid[0].name)
+      end
+    end
+    bidders.uniq
   end
 end
