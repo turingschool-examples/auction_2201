@@ -8,4 +8,9 @@ RSpec.describe Auction do
     auction = Auction.new
     expect(auction).to be_a(Auction)
   end
+
+  it "starts with an empty array of items" do
+    auction = Auction.new
+    expect(auction.items).to eq([])
+  end
 end
