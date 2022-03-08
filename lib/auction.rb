@@ -20,4 +20,8 @@ class Auction
     @items.map {|item| item if item.bids == {}}.compact
   end
 
+  def potential_revenue
+    @items.map {|item| item.current_high_bid}.compact.sum
+  end
+
 end
