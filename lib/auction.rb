@@ -27,11 +27,7 @@ class Auction
   end
 
   def potential_revenue
-    all_highest_bids = []
-    @items.each do |item|
-      all_highest_bids << item.current_high_bid
-    end
-    all_highest_bids.compact.sum
+    @items.map { |item| item.current_high_bid }.compact.sum
   end
 
   def bidders
