@@ -8,6 +8,11 @@ class Auction
     @items = []
   end
 
+  def date
+    date = Date.today
+    date.strftime("%d/%m/%Y")
+  end
+
   def add_item(item)
     @items << item
   end
