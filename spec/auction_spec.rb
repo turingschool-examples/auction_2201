@@ -8,6 +8,9 @@ RSpec.describe Auction do
     @auction = Auction.new
     @item1 = Item.new('Chalkware Piggy Bank')
     @item2 = Item.new('Bamboo Picture Frame')
+    @item3 = Item.new('Homemade Chocolate Chip Cookies')
+    @item4 = Item.new('2 Days Dogsitting')
+    @item5 = Item.new('Forever Stamps')
   end
 
 
@@ -25,8 +28,11 @@ RSpec.describe Auction do
   it 'has names for the items' do
     @auction.add_item(@item1)
     @auction.add_item(@item2)
-    require 'pry'; binding.pry
     expect(@auction.item_names).to eq(["Chalkware Piggy Bank", "Bamboo Picture Frame"])
+  end
+
+  it 'has bids for items' do
+    expect(@item1.bids).to eq({})
   end
 
 end

@@ -49,7 +49,7 @@ pry(main)> auction.add_item(item2)
 pry(main)> auction.items
 #=> [#<Item:0x00007fbda98fa1b0 ...>, #<Item:0x00007fbda91874f0 ...>]
 
-pry(main)> auction.item_names
+pry(main)> auction.item_names  x
 #=> ["Chalkware Piggy Bank", "Bamboo Picture Frame"]
 
 ```
@@ -82,7 +82,7 @@ pry(main)> item3 = Item.new('Homemade Chocolate Chip Cookies')
 pry(main)> item4 = Item.new('2 Days Dogsitting')
 #=> #<Item:0x00007fdc088fb6f0 @bids={}, @name="2 Days Dogsitting">
 
-pry(main)> item5 = Item.new('Forever Stamps')
+pry(main)> item5 = Item.new('Forever Stamps') - x in item spec
 #=> #<Item:0x00007fdc071695f0 @bids={}, @name="Forever Stamps">
 
 pry(main)> attendee1 = Attendee.new({name: 'Megan', budget: '$50'})
@@ -91,7 +91,7 @@ pry(main)> attendee1 = Attendee.new({name: 'Megan', budget: '$50'})
 pry(main)> attendee2 = Attendee.new({name: 'Bob', budget: '$75'})
 #=> #<Attendee:0x00007fdc071131c8 @budget=75, @name="Bob">
 
-pry(main)> attendee3 = Attendee.new({name: 'Mike', budget: '$100'})
+pry(main)> attendee3 = Attendee.new({name: 'Mike', budget: '$100'}) - x in attendee spec
 #=> #<Attendee:0x00007fdc070e2190 @budget=100, @name="Mike">
 
 pry(main)> auction = Auction.new
