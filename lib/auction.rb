@@ -32,9 +32,9 @@ class Auction
 
   def bidder_info
     bidders = {}
-    @items.each {|item| item.bids.each{|bidder, bid | bidders[bidder] = {}}}
-    bidders.each {|bidder, hash| hash[:budget] = bidder.budget}
-    bidders.each {|bidder, hash| hash[:items] = @items.find_all{|item| item.bids.keys.include?(bidder)}}
+    @items.each { |item| item.bids.each { |bidder, bid| bidders[bidder] = {} } }
+    bidders.each { |bidder, hash| hash[:budget] = bidder.budget }
+    bidders.each { |bidder, hash| hash[:items] = @items.find_all { |item| item.bids.keys.include?(bidder) } }
     bidders
   end
 end
