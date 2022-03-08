@@ -34,7 +34,7 @@ pry(main)> attendee = Attendee.new({name: 'Megan', budget: '$50'})
 pry(main)> attendee.name
 #=> "Megan"
 
-pry(main)> attendee.budget
+pry(main)> attendee.budget x
 #=> 50
 
 pry(main)> auction = Auction.new
@@ -49,7 +49,7 @@ pry(main)> auction.add_item(item2)
 pry(main)> auction.items
 #=> [#<Item:0x00007fbda98fa1b0 ...>, #<Item:0x00007fbda91874f0 ...>]
 
-pry(main)> auction.item_names
+pry(main)> auction.item_names  x
 #=> ["Chalkware Piggy Bank", "Bamboo Picture Frame"]
 
 ```
@@ -82,7 +82,7 @@ pry(main)> item3 = Item.new('Homemade Chocolate Chip Cookies')
 pry(main)> item4 = Item.new('2 Days Dogsitting')
 #=> #<Item:0x00007fdc088fb6f0 @bids={}, @name="2 Days Dogsitting">
 
-pry(main)> item5 = Item.new('Forever Stamps')
+pry(main)> item5 = Item.new('Forever Stamps') - x in item spec
 #=> #<Item:0x00007fdc071695f0 @bids={}, @name="Forever Stamps">
 
 pry(main)> attendee1 = Attendee.new({name: 'Megan', budget: '$50'})
@@ -91,7 +91,7 @@ pry(main)> attendee1 = Attendee.new({name: 'Megan', budget: '$50'})
 pry(main)> attendee2 = Attendee.new({name: 'Bob', budget: '$75'})
 #=> #<Attendee:0x00007fdc071131c8 @budget=75, @name="Bob">
 
-pry(main)> attendee3 = Attendee.new({name: 'Mike', budget: '$100'})
+pry(main)> attendee3 = Attendee.new({name: 'Mike', budget: '$100'}) - x in attendee spec
 #=> #<Attendee:0x00007fdc070e2190 @budget=100, @name="Mike">
 
 pry(main)> auction = Auction.new
@@ -114,7 +114,7 @@ pry(main)> item1.add_bid(attendee2, 20)
 
 pry(main)> item1.add_bid(attendee1, 22)
 
-pry(main)> item1.bids
+pry(main)> item1.bids x
 #=> {
 #     #<Attendee:0x00007fdc071131c8 ...> => 20,
 #     #<Attendee:0x00007fdc088f0e08 ...> => 22
@@ -125,7 +125,7 @@ pry(main)> item1.current_high_bid
 
 pry(main)> item4.add_bid(attendee3, 50)
 
-pry(main)> auction.unpopular_items
+pry(main)> auction.unpopular_items - no bids
 #=> [#<Item:0x00007fdc07925280 ...>, #<Item:0x00007fdc071ab040 ...>, #<Item:0x00007fdc071695f0 ...>]
 
 pry(main)> item3.add_bid(attendee2, 15)
@@ -135,13 +135,14 @@ pry(main)> auction.unpopular_items
 
 pry(main)> auction.potential_revenue
 #=> 87
-
+is the total possible sale price of the items (the items highest bid)
+- need to add item1, 3, and 4.
 ```
 
 ## Iteration 3 - More bidding stuff!
 
 Use TDD to update your classes to respond to the following interaction pattern.  Some notes:
-- `bidders` should list the names of each attendee that bid on the item. 
+- `bidders` should list the names of each attendee that bid on the item.
 - `close_bidding` should update the item so that it will not accept additional bids.
 - `bidder_info` should return a hash with keys that are attendees, and values that are a hash with that attendee's budget and an array of items that attendee has bid on.
 
@@ -203,14 +204,15 @@ pry(main)> item3.add_bid(attendee2, 15)
 pry(main)> auction.bidders
 #=> ["Megan", "Bob", "Mike"]
 
-pry(main)> item1.bids
+pry(main)> item1.bids x
 #=> {#<Attendee:0x00007ff177a45108 ...> => 22, #<Attendee:0x00007ff17816a4b0 ...> => 20}
 
 pry(main)> item1.close_bidding
+`close_bidding` should update the item so that it will not accept additional bids. x
 
 pry(main)> item1.add_bid(@attendee3, 70)
 
-pry(main)> item1.bids
+pry(main)> item1.bids x
 #=> {#<Attendee:0x00007ff177a45108 ...> => 22, #<Attendee:0x00007ff17816a4b0 ...> => 20}
 
 pry(main)> auction.bidder_info
@@ -231,8 +233,10 @@ pry(main)> auction.bidder_info
  #        :items => [#<Item:0x00007ff177a9d858...>]
  #      }
  #   }
+# - `bidder_info` should return a hash with keys that are attendees, and values that are a hash with that attendee's budget and an array of items that attendee has bid on.
 
 ```
+
 
 ## Iteration 4 - Dates ! And closing the auction
 
