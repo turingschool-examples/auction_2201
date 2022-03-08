@@ -15,4 +15,9 @@ class Auction
   def unpopular_items
     @items.find_all{|no_bid| no_bid if no_bid.bids == {}}
   end
+
+  def potential_revenue
+    bids = @items.map {|item| item.current_high_bid}
+    bids.compact.sum
+  end
 end
