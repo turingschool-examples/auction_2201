@@ -1,3 +1,6 @@
+require 'pry'
+require './lib/item'
+
 class Attendee
   attr_reader :name, :budget
 

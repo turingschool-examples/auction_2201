@@ -39,8 +39,6 @@ RSpec.describe Item do
   it 'prevents additional bids during close bidding' do
     @item1.add_bid(@attendee1, 22)
     @item1.add_bid(@attendee2, 20)
-    @item4.add_bid(@attendee3, 50)
-    @item3.add_bid(@attendee2, 15)
     @item1.close_bidding
 
     expect(@item1.bids).to eq({@attendee2 => 20,
