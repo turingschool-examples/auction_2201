@@ -11,4 +11,12 @@ class Auction
     @items << item
   end
 
+  def item_names
+    item_names_array = []
+    @items.each do |item|
+      item_names_array << item.name
+    end
+    item_names_array
+  end
+
 end
