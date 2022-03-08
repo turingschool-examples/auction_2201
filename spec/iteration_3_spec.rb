@@ -2,7 +2,6 @@ require './lib/item'
 require './lib/attendee'
 require './lib/auction'
 
-
 context 'iteration_3' do
   before(:each) do
     @item1 = Item.new('Chalkware Piggy Bank')
@@ -29,9 +28,12 @@ context 'iteration_3' do
     it 'lists bidders by name' do
       expect(@auction.bidders).to eq ["Megan", "Bob", "Mike"]
     end
-
-
   end
-
-
-end
+  describe Item do
+    it 'does not accept bids after close_bidding' do
+      @item1.close_bidding
+      @item1.add_bid(@attendee3, 70)
+      expect(@item1.bids).to eq ({@attendee2 => 20,@attendee1 => 22})
+    end
+  end
+end 
