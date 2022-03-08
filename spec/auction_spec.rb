@@ -58,5 +58,19 @@ RSpec.describe Auction do
     expect(@auction.potential_revenue).to eq(87)
   end
 
+  it 'can list all bidders' do
+    @item1.add_bid(@attendee1, 22)
+    @item1.add_bid(@attendee2, 20)
+    @item4.add_bid(@attendee3, 50)
+    @item3.add_bid(@attendee2, 15)
+    @auction.add_item(@item1)
+    @auction.add_item(@item2)
+    @auction.add_item(@item3)
+    @auction.add_item(@item4)
+    @auction.add_item(@item5)
+
+    expect(@auction.bidders).to eq(["Megan","Bob","Mike"])
+  end
+
 
 end
