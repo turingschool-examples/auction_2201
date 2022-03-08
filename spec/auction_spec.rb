@@ -1,7 +1,6 @@
 require 'rspec'
 require './lib/auction'
 
-
 describe Auction do
   describe 'iteration 1' do
     before (:each) do

@@ -8,7 +8,6 @@ class Auction
   def initialize
     @items = []
     @auction_date = Date.today
-    # require "pry"; binding.pry
   end
 
   def add_item(item)
