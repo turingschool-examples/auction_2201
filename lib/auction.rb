@@ -25,4 +25,9 @@ class Auction
   def potential_revenue
     items_bid_on.map { |item| item.current_high_bid }.sum
   end
+
+  def bidders
+    bidders = @items.flat_map { |item| item.bids.keys }.uniq
+    bidders.map { |attendee| attendee.name }
+  end
 end
