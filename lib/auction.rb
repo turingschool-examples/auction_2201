@@ -13,4 +13,11 @@ class Auction
   def item_names
     @items.map {|item| item.name}
   end
+
+  def unpopular_items
+    all_items = @items
+    unpopular = all_items.keep_if {|item| item.bids == {}}
+  end
+
+
 end
