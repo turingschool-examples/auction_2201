@@ -98,5 +98,12 @@ RSpec.describe Auction do
     it "Auction lists bidders" do
       expect(auction.bidders).to eq(["Megan", "Bob", "Mike"])
     end
+
+    it "Item closes bidding" do
+      item1.close_bidding
+      item1.add_bid(attendee3, 70)
+      expect(item1.bids).to eq({attendee2 => 20,
+                                attendee1 => 22})
+    end
   end
 end
