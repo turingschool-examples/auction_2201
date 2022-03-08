@@ -30,4 +30,24 @@ class Auction
     end
     bidders.uniq
   end
+
+  def bidder_info
+    attendees = {}
+    items.each do |item|
+      item.bids.each do |bid|
+        if attendees.include? bid[0]
+        else
+          attendees[bid[0]] = {:budget => bid[0].budget, :items => []}
+        end
+      end
+    end
+    items.each do |item|
+      item.bids.each do |bid|
+          attendees[bid[0]][:items].push(item)
+          binding.pry
+      end
+    end
+    binding.pry
+    return attendees
+  end
 end

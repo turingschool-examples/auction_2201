@@ -1,12 +1,18 @@
 class Item
   attr_reader :name, :bids
+  attr_accessor :is_open
   def initialize(name)
     @name = name
     @bids = {}
+    @is_open = true
   end
 
   def add_bid(attendee,bid)
-    bids[attendee] = bid
+    if is_open == true
+      bids[attendee] = bid
+    else
+      return
+    end
   end
 
   def current_high_bid
@@ -17,5 +23,9 @@ class Item
       end
     end
     return high_bid
+  end
+
+  def close_bidding
+    @is_open = false
   end
 end
