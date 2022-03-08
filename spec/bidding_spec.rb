@@ -18,10 +18,14 @@ RSpec.describe 'Bidding!' do
 
       @auction = Auction.new
 
+      @auction.add_item(@item1)
+      @auction.add_item(@item2)
+      @auction.add_item(@item3)
+      @auction.add_item(@item4)
+      @auction.add_item(@item5)
+
       @item1.add_bid(@attendee2, 20)
       @item1.add_bid(@attendee1, 22)
-
-      @item4.add_bid(attendee3, 50)
     end
 
     it 'Item #bids contains info of attendee and amount bid on item' do
@@ -38,7 +42,9 @@ RSpec.describe 'Bidding!' do
     end
 
     it 'Auction #unpopular_items knows the least bidded item' do
-      expect(@auction.unpopular_items).to eq(@item4)
+      @item4.add_bid(@attendee3, 50)
+      # binding.pry
+      expect(@auction.unpopular_items).to eq([@item2, @item3, @item5])
     end
   end
 end
