@@ -1,6 +1,7 @@
 require './lib/auction'
 require './lib/item'
-
+require './lib/attendee'
+require 'date'
 
 RSpec.describe Auction do
 
@@ -15,7 +16,6 @@ RSpec.describe Auction do
     @attendee2 = Attendee.new({name: 'Bob', budget: '$75'})
     @attendee3 = Attendee.new({name: 'Mike', budget: '$100'})
   end
-
 
   it 'exists' do
     expect(@auction).to be_a(Auction)
@@ -140,6 +140,10 @@ RSpec.describe Auction do
             }
          }
     )
+  end
+
+  it 'has a date' do
+    expect(@auction.date).to eq("24/02/2020")
   end
 
 end

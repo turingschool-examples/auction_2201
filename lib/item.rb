@@ -1,5 +1,4 @@
 class Item
-
   attr_reader :name, :bids, :bidder_names
 
   def initialize(name)

@@ -1,5 +1,4 @@
 class Auction
-
   attr_reader :items
 
   def initialize
@@ -38,17 +37,9 @@ class Auction
         item.bidder_names
       end
     end.flatten.compact.uniq
-    # require 'prsy'; binding.pry
   end
 
   def bidder_info
-    # info_hash = Hash.new(0)
-    # @items.each do |item|
-    #  item.bids.each do |attendee, bid|
-    #    info_hash[attendee] = {:budget => attendee.budget, :items => !item.bidder_names.empty? ? item : nil}
-    #  end
-    # end
-    # info_hash
     info_hash = Hash.new(0)
     @items.each do |item|
      item.bids.each do |attendee, bid|
@@ -61,7 +52,6 @@ class Auction
       end
     end
     info_hash
-    # require 'pry'; binding.pry
   end
 
 end

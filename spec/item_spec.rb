@@ -10,7 +10,6 @@ RSpec.describe Item do
     @item5 = Item.new('Forever Stamps')
   end
 
-
   it 'exists' do
     expect(@item1).to be_a(Item)
   end
@@ -19,7 +18,4 @@ RSpec.describe Item do
     expect(@item1.name).to eq('Chalkware Piggy Bank')
     expect(@item2.name).to eq('Bamboo Picture Frame')
   end
-
-
-
 end
