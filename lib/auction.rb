@@ -1,4 +1,5 @@
 require 'pry'
+require 'date'
 class Auction
   attr_reader :items
   def initialize
