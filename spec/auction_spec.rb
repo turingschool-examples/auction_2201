@@ -113,7 +113,7 @@ describe Auction do
       @item5.add_bid(@attendee1, 35)
     end
 
-    xit 'Auction #close_auction' do
+    it 'Auction #close_auction' do
       expected = {
         @item1 => @attendee2,
         @item2 => 'Not Sold',
