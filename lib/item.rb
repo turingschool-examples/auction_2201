@@ -16,4 +16,9 @@ class Item
     end
   end
 
+  def current_high_bid
+    
+
+  end
+
 end
