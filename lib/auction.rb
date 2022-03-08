@@ -1,4 +1,5 @@
 require_relative 'item'
+require_relative 'attendee'
 class Auction
 
   attr_reader :items
@@ -21,5 +22,9 @@ class Auction
 
   def potential_revenue
     @items.map{|item| item.current_high_bid.to_i}.sum
+  end
+
+  def bidders
+    @items.map{|item| item.bids.keys}.flatten.uniq.map{|attendee| attendee.name}
   end
 end
