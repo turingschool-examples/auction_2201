@@ -50,16 +50,20 @@ RSpec.describe Auction do
       @auction.add_item(@item5)
     end
     it 'can hold the items' do
-      # @auction.add_item(@item1)
-      # @auction.add_item(@item2)
-      # @auction.add_item(@item3)
-      # @auction.add_item(@item4)
-      # @auction.add_item(@item5)
+
       expect(@auction.items).to eq([@item1, @item2, @item3, @item4, @item5])
     end
 
-    xit 'can read bids' do
+    it 'can read bids' do
 
+      expect(@item1.bids).to eq({})
+    end
+
+    it 'can add bids to an item' do
+      @item1.add_bid(@attendee2, 20)
+      @item1.add_bid(@attendee1, 22)
+
+      expect(@item1.bids).to eq({@attendee2 => 20, @attendee1 => 22})
     end
   end
 end
