@@ -59,10 +59,8 @@ attr_reader :items
               break
             else
               bidding_items.delete(most_expensive_item)
-
               most_expensive_item.bids.delete(attendee)
             end
- 
         end
                     }
     @items.each {|item| items_sold[item] = "Not sold" if !items_sold.keys.include?(item)}
