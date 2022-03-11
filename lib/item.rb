@@ -19,5 +19,6 @@ class Item
     @close_bidding = true
   end
 
+  
 
 end
