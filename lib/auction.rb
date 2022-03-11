@@ -46,26 +46,49 @@ attr_reader :items
      [Date.today.strftime('%d/%m/%y')[0..-3], Date.today.year.to_s].join
   end
 
+  def items_with_sorted_bidder_by_bid
+    sorted_list = {}
+    @items.each {|item| sorted_list[item] = item.bids.sort_by{|attendee, bid| bid}.reverse
+  }
+    sorted_list
+  end
+
+  def attendees_with_ranked_items
+    sorted_list = {}
+    bidder_info
+    bidder_info.each  {|attendee, info|
+          sorted_list[attendee] = {}
+          sorted_list[attendee][:ranked_bids] = info[:items].sort_by{|item|
+            item.bids[attendee]}.reverse
+           if attendee.budget >=sorted_list[attendee][:ranked_bids].map{|item| item.bids[attendee]}.sum
+             sorted_list[attendee][:stinky_rich?] = true
+           end
+                          }
+
+      sorted_list
+  end
 
   def close_auction
     items_sold = {}
-    bidder_info.each { |attendee, info|
-        bidding_items = info[:items]
-        until bidding_items ==[] do
-            most_expensive_item = bidding_items.max_by {|item| item.current_high_bid}
-            if most_expensive_item.bids[attendee] == most_expensive_item.current_high_bid && attendee.budget >= most_expensive_item.current_high_bid
-              items_sold[most_expensive_item] = attendee
-              attendee.budget -= most_expensive_item.current_high_bid
-              break
-            else
-              bidding_items.delete(most_expensive_item)
-              most_expensive_item.bids.delete(attendee)
-            end
+    item_list = items_with_sorted_bidder_by_bid
+    items_with_sorted_bidder_by_bid.each do |item, ranked_bids|
+        if item.bids == {}
+          items_sold[item] = "Not sold"
         end
-                    }
-    @items.each {|item| items_sold[item] = "Not sold" if !items_sold.keys.include?(item)}
-    items_sold
-    # require "pry"; binding.pry
-    end
+        ranked_bids.each do |bid|
+        if item_list[item][0] == bid && attendees_with_ranked_items[bid[0]][:stinky_rich?] == true
+                items_sold[item] = bid[0]
+                break
+        elsif item_list[item][0] == bid && attendees_with_ranked_items[bid[0]][:ranked_bids][0] == item && bid[0].budget >= bid[1]
+                items_sold[item] = bid[0]
+                break
+        else
+                attendees_with_ranked_items[bid[0]][:ranked_bids].delete(item)
+                item_list[item].delete(bid)
+        end
+       end
+      end
+      items_sold
+   end
 
   end

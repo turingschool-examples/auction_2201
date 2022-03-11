@@ -29,17 +29,17 @@ context 'iteration_4' do
 
   describe Auction do
     it 'has a date in dd/mm/yyyy format' do
-      expect(@auction.date).to eq "08/03/2022"
+      expect(@auction.date).to eq "11/03/2022"
 
     end
 
     it 'sells item to bidders when close_auction' do
       expect(@auction.close_auction).to eq ({
-                                            @item5 => @attendee1,
+                                            @item1 => @attendee2,
+                                            @item2 => 'Not sold',
                                             @item3 => @attendee2,
                                             @item4 => @attendee3,
-                                            @item2 => 'Not sold',
-                                            @item1 => @attendee2
+                                            @item5 => @attendee1
                                             })
     end
   end
